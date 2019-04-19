@@ -1,0 +1,668 @@
+<!doctype html>
+<html>
+	<head>
+		<title>JornHub.nl -Home</title>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body >
+		<script id="entry-template" type="text/x-handlebars-template">
+			{{#each this}}
+				<div class="myThumbnail">
+					<a href="watch.html?id={{id}}" title="Redhead poledancing" class="box">
+						<div class="imgBox">
+							<img src="/img/thumb/{{img}}">
+
+							<div class="time">{{time}}</div>
+							<div class="rating">
+								<i class="fa fa-thumbs-up"></i>
+								<span>{{score}}%</span>
+							</div>
+						</div>
+						<div class="textbox">
+							<span class="text">{{title}}</span>
+						</div>
+						<div class="views">{{formatCurrency views}} VIEWS</div>
+					</a>
+				</div>
+			{{/each}}
+		</script>
+
+		<script id="myad-template" type="text/x-handlebars-template">
+			<div id="myad" class="myad">
+				<a href="/ads.html">
+					<img src="/img/myad/{{imageName}}"/>
+				</a>
+			</div>
+		</script>
+
+		<script id="watch-template" type="text/x-handlebars-template">
+			<iframe id="ytplayer" src="{{urlsrc}}" frameborder="0" allowfullscree="true"></iframe>
+		</script>
+
+		<div class="topBar">
+			<b>Jornhub NETWORK</b>
+			<a href="/" class="partner">JornHub</a>
+			<a href="/" class="partner">YouJorn</a>
+			<a href="/" class="partner">LedTube</a>
+			<a href="/" class="partner">Cube8</a>
+			<a href="/" class="partner">JornMD</a>
+			<a href="/" class="partner">BankWire</a>
+			<a href="/" class="partner">KeesMovies</a>
+			<a href="/" class="partner">Jay Jorn</a>
+		</div>
+		<div class="searchBar">
+			<a href="/" class="logo">
+				<img src="/img/logo.png">
+			</a>
+			<form action="/" method="get" class="hidden-xs">
+				<input type="text" placeholder="Search..." name="q" class="searchbox"><button class="typeselect">
+					<i class="fa fa-video-camera fa-lg"></i>
+					<i class="fa fa-caret-down fa-lg"></i>
+				</button><button class="submitbtn">
+					<i class="fa fa-search fa-lg"></i>
+				</button>
+			</form>
+			<a href="#" class="uploadbtn">
+				<i class="fa fa-arrow-up"></i>upload
+			</a>
+			<a href="#" class="upgradebtn">
+				<i class="fa fa-star"></i>  upgrade
+			</a>
+			<div class="pull-right">
+				<a href="#">EN<i class="fa fa-caret-down fa-lg"></i></a>
+				<a href="#">Loggin</a>
+				<a href="#">Sign Up</a>
+			</div>
+		</div>
+		<div class="menuBar">
+			<a href="/" class="active">HOME</a>
+			<a href="/">VIDEOS<i class="fa fa-caret-down fa-lg"></i></a>
+			<a href="/">CATEGORIES<i class="fa fa-caret-down fa-lg"></i></a>
+			<a href="/">LIVE<i class="fa fa-caret-down fa-lg"></i></a>
+			<a href="/">PREMIUM HD<i class="fa fa-caret-down fa-lg"></i></a>
+			<a href="/">MEAT&amp;DUCK<i class="fa fa-caret-down fa-lg"></i></a>
+			<a href="/">COMMUNITY<i class="fa fa-caret-down fa-lg"></i></a>
+			<a href="/">PHOTOS&amp;GIFS<i class="fa fa-caret-down fa-lg"></i></a>
+		</div>
+
+
+		<div id="container">
+			<div class="blockHeader">
+				Watch video
+			</div>
+			<div id="flexContainer">
+				<div id="videoWatch"></div>
+				<div id="myad1"></div>
+			</div>
+		</div>
+
+		<div id="container">
+			<div class="blockHeader">
+				Recommended for you
+			</div>
+			<div id="recommended"></div>
+		</div>
+
+
+		<script type="text/javascript">
+			$.urlParam = function(name){
+				var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+				if (results==null){
+					return null;
+				}
+				else{
+					return results[1] || 0;
+				}
+			}
+			var videoId = $.urlParam("id");
+
+			Handlebars.registerHelper('formatCurrency', function(value) {
+				return value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+			});
+			videos = [
+			    {
+			      title: "Young black chick",
+			      img: "alfred.png",
+			      time: "3:01",
+			      url: "dnIIA-6Kts0"
+			    }, 
+			    {
+			      title: "Youngest interracial on the internet",
+			      img: "calimero.png",
+			      url: "uZpmokW7ZY4",
+			      time: "1:04"
+			    }, 
+			    {
+			      title: "Uncle Fucker",
+			      img: "uncle.png",
+			      url: "VsMcdEswK8k",
+			      time: "1:02"
+			    }, {
+			      title: "Big cock with 5 young chicks",
+			      img: "cock.png",
+			      time: "0:37",
+			      url: "WzTVkcHZkNE"
+			    }, {
+			      title: "Hottest chicks available",
+			      img: "bbq.png",
+			      time: "2:28",
+			      url: "rI8vc-f8LCU"
+			    }, {
+			      title: "Knoxville Gay Dildo",
+			      img: "dildo.png",
+			      time: "0:55",
+			      url: "g3eCHzFGXLg"
+			    }, {
+			      title: "Redhead poledancing",
+			      img: "pole.png",
+			      time: "9:27",
+			      url: "lZAWFajua7g"
+			    }, {
+			      title: "Brunette striptease",
+			      img: "strip.png",
+			      time: "6:26",
+			      url: "A0yOGaTcPUw"
+			    }, {
+			      title: "Californian Red Hot Topless Quaddruple",
+			      img: "chili.png",
+			      time: "5:21",
+			      url: "YlUKcNNmywk"
+			    }, {
+			      title: "Sexy Green String",
+			      img: "mankini.png",
+			      time: "3:12",
+			      url: "iYlwzmj0dkw"
+			    }, 
+			    // {
+			    //   title: "Lesbian Fettish Halloween",
+			    //   img: "store.png",
+			    //   time: "3:46",
+			    //   url: "oRqdLZlsvbY"
+			    // }, 
+			    {
+			      title: "MILF in lingerie",
+			      img: "milf.png",
+			      time: "4:00",
+			      url: "iwLaxZj8THw"
+			    }, {
+			      title: "Blonde Hairy Jorn",
+			      img: "star.png",
+			      time: "8:41",
+			      url: "dEtyaC6ltQg"
+			    }, {
+			      title: "Sexy teen with one ball",
+			      img: "kud.png",
+			      time: "3:47",
+			      url: "qPd1YWTSwE0"
+			    }
+			  ];
+
+			videos.forEach(function(el,i){
+				el.id=i;
+				el.score = Math.round(Math.random() * 30 + 70);
+				el.views = Math.round(Math.random() * 2000000 + 100000);
+				el.urlsrc = "https://www.youtube.com/embed/" + el.url;
+			});
+
+			var top6 = _.sampleSize(videos, 6);
+
+			network = "Jornhub YouJorn LedTube Cube8 JornMD BankWire KeesMovies Jay-Jorn".split(" ")
+
+
+			var source   = $("#entry-template").html();
+			var template = Handlebars.compile(source);
+
+			var recommended = _.sampleSize(videos, 5);
+			var html    = template(recommended);
+			$("#recommended").html(html);
+
+			var ads = "69.jpg  difference.jpg  DIY.jpg  nothing.jpg  priest.jpg  self.jpg  unemployed2.jpg  doneright.png".split("  ");
+			console.log(ads);
+
+			source   = $("#myad-template").html();
+			template = Handlebars.compile(source);
+			myads = _.sampleSize(ads, 3)
+			html    = template({imageName: myads[0]});
+			$("#myad1").replaceWith(html);
+
+
+			source   = $("#watch-template").html();
+			template = Handlebars.compile(source);
+			var filmpje = videos[videoId];
+			html    = template(filmpje);
+			$("#videoWatch").html(html);
+
+		</script>
+		<style>
+			.myThumbnail{border:none;display:inline-block;width:233px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:5px;height:250px;overflow-y: hidden;}
+			.myThumbnail a{display:block;text-decoration:none; }
+			.myThumbnail .imgBox{width:100%;position:relative;font-size:120%;}
+			.myThumbnail .imgBox img{width:100%;height:100%}
+			.myThumbnail .imgBox .time{-webkit-border-radius:10px;border-radius:10px;background:rgba(0,0,0,0.533);padding:0 7px 2px;position:absolute;right:5px;top:5px;color:#fff}
+			.myThumbnail .imgBox .rating{-webkit-border-radius:10px;border-radius:10px;background:rgba(0,0,0,0.533);position:absolute;left:5px;top:5px;color:#0c0;padding:0 7px 2px;}
+			.myThumbnail .imgBox .rating span{margin-left:7px;color:#fff}
+			.myThumbnail .textbox{color:#d98c00;text-decoration:none;font-weight:bold;}
+			.myThumbnail .textbox .text{font-size:16px}
+			.myThumbnail .views{color:#fff;text-align:right}
+
+			#mostViewed, #recommended {
+				display: flex;
+				flex-direction: row-wrap;
+			}
+
+			#mostViewed .myThumbnail, #recommended .myThumbnail {
+				margin: auto;
+			}
+
+			#videoWatch {
+				width: 66%;
+			}
+
+			#myad {
+				/*width: 33%;*/
+				border: 1px solid red;
+				/*top: 0;*/
+				/*position: absolute;*/
+				margin:auto;
+			}
+
+			#myad img {
+				max-width: 30vw;
+				max-height: 400px;
+			}
+
+			#ytplayer {
+				width: 50vw;
+				height: 30vw;
+				margin: auto;
+			}
+
+			.blockHeader {
+				width: 100%;
+				/*height: 30px;*/
+				font-size: 19px;
+				background-color: #1b1b1b;
+				color: #fff;
+				padding-left: 10px;
+			}
+
+			#flexContainer {
+				/*display: relative;*/
+				display: flex;
+				flex-direction: row;
+				background-color: #0f0f0f;
+				padding: 5px;
+			}
+
+			#addBlock {
+				display: flex;
+				flex-direction: row-wrap;
+				background-color: #0f0f0f;
+				padding: 5px;
+			}
+
+			#addBlock #myad img {
+				max-width: 49vw;
+				max-height: 350px;
+			}
+
+			#container {
+				margin: 10px;
+			}
+
+			@media (max-width: 730px) {
+				#ytplayer {
+					width: 90vw;
+					height: 53vw;
+				}
+
+				.myThumbnail {
+					margin: auto;
+					width: 100%;
+					max-height: none;
+					height: auto;
+				}
+
+				.myThumbnail:nth-child(even) {
+					display: none;
+				}
+
+
+
+				#mostViewed, #recommended {
+					display: flex;
+					flex-direction: column;
+				}
+
+				#top6 {
+					width: 100%;
+					max-width: none;
+					flex-direction: column;
+					display: flex;
+				}
+
+				#myad {
+					/*width: 33%;*/
+					border: 1px solid red;
+					/*top: 0;*/
+					/*position: absolute;*/
+					margin:auto;
+				}
+
+				#myad img {
+					max-width: 90vw;
+					max-height: 500px;
+				}
+
+
+				.myThumbnail .textbox .text {
+					font-size: 40px;
+				}
+
+				.myThumbnail .views {
+					font-size: 30px;
+				}
+
+
+
+				
+
+				.blockHeader {
+					font-size: 37px;
+				}
+
+				#flexContainer {
+					/*display: relative;*/
+					display: flex;
+					flex-direction: column;
+					background-color: #0f0f0f;
+					padding: 5px;
+				}
+
+				#addBlock {
+					display: flex;
+					flex-direction: column;
+					background-color: #0f0f0f;
+					padding: 5px;
+				}
+
+				#addBlock #myad img {
+					max-width: 90vw;
+					max-height: 500px;
+				}
+				#addBlock #myad {
+					margin-bottom: 20px;
+				}
+			}
+
+			@media (max-width: 400px) {
+
+				.myThumbnail .textbox .text {
+					font-size: 25px;
+				}
+
+				.myThumbnail .views {
+					font-size: 18px;
+				}
+
+				.blockHeader {
+					font-size: 23px;
+				}
+
+			}
+
+
+
+
+			body {
+			  background: #000;
+			}
+			.myad {
+			  border: 7px dotted #f00;
+			  -webkit-animation: flicker 0.7s infinite;
+			  -moz-animation: flicker 0.7s infinite;
+			  -o-animation: flicker 0.7s infinite;
+			  -ms-animation: flicker 0.7s infinite;
+			  animation: flicker 0.7s infinite;
+			}
+			.awrap {
+			  position: relative;
+			  padding-left: 50%;
+			}
+			.myada {
+			  display: block;
+			  margin-left: -170px;
+			  width: 340px;
+			  height: 340px;
+			}
+			.topBar {
+			  color: #fff;
+			  height: 21px;
+			  overflow: hidden;
+			  border-bottom: 1px solid #404040;
+			}
+			.topBar a {
+			  -webkit-border-radius: 10px;
+			  border-radius: 10px;
+			  color: #fff;
+			  padding: 0px 7px 2px;
+			  margin-left: 7px;
+			  font-size: 80%;
+			  display: inline-block;
+			}
+			.topBar a:hover {
+			  background: #404040;
+			  color: #bfbfbf;
+			  text-decoration: none;
+			}
+			.topBar span {
+			  color: #bfbfbf;
+			  padding: 0px 7px 2px;
+			  margin-left: 7px;
+			  font-size: 80%;
+			  display: inline-block;
+			}
+			.searchBar {
+			  height: 61px;
+			  overflow: hidden;
+			  border-bottom: 1px solid #404040;
+			  background: #222;
+			}
+			.searchBar .logo {
+			  float: left;
+			  height: 38px;
+			  width: 149px;
+			  margin-top: 13px;
+			  display: inline-block;
+			}
+			.searchBar form {
+			  float: left;
+			  margin: 17px 20px 0 20px;
+			  display: inline-block;
+			}
+			.searchBar form .searchbox {
+			  border: 0;
+			  display: inline-block;
+			  -webkit-border-radius: 3px 0 0 3px;
+			  border-radius: 3px 0 0 3px;
+			  height: 26px;
+			}
+			.searchBar form .typeselect {
+			  height: 26px;
+			  display: inline-block;
+			  border: 0;
+			  background: #fff;
+			}
+			.searchBar form .typeselect .fa {
+			  margin-left: 7px;
+			}
+			.searchBar form .submitbtn {
+			  width: 65px;
+			  border: 0;
+			  -webkit-border-radius: 0;
+			  border-radius: 0;
+			  display: inline-block;
+			  -webkit-border-radius: 0 3px 3px 0;
+			  border-radius: 0 3px 3px 0;
+			  height: 26px;
+			  background: #ffa500;
+			}
+			.searchBar .uploadbtn {
+			  float: left;
+			  margin: 17px 20px 0 20px;
+			  display: inline-block;
+			  -webkit-border-radius: 3px;
+			  border-radius: 3px;
+			  background: #333;
+			  color: #aaa;
+			  padding: 6px 15px;
+			  text-decoration: none;
+			  font-weight: bold;
+			}
+			.searchBar .uploadbtn:hover {
+			  background: #555;
+			}
+			.searchBar .upgradebtn {
+			  float: left;
+			  font-weight: bold;
+			  margin: 17px 20px 0 20px;
+			  display: inline-block;
+			  -webkit-border-radius: 3px;
+			  border-radius: 3px;
+			  background: #F90;
+			  color: black;
+			  padding: 6px 15px;
+			  text-decoration: none;
+			}
+			.searchBar .upgradebtn:hover {
+			  background: #ffa31a;
+			}
+			.searchBar .pull-right a {
+			  color: #bbb;
+			  text-decoration: none;
+			  display: inline-block;
+			  height: 26px;
+			  margin: 17px 5px 0 5px;
+			}
+			.searchBar .pull-right a .fa {
+			  margin-left: 5px;
+			}
+			.searchBar .pull-right a:hover {
+			  color: #fff;
+			}
+			.menuBar {
+			  height: 41px;
+			  border-bottom: 1px solid #404040;
+			  overflow: hidden;
+			  background: #111;
+			}
+			.menuBar a {
+			  text-align: center;
+			  font-size: 12px;
+			  font-weight: bold;
+			  display: inline-block;
+			  width: 130px;
+			  height: 40px;
+			  padding: 13px 13px 2px;
+			  text-decoration: none;
+			  color: #fff;
+			}
+			.menuBar a:hover {
+			  background: #333;
+			}
+			.menuBar a .fa {
+			  margin-left: 5px;
+			}
+			.menuBar a.active {
+			  padding-bottom: 0px;
+			  border-bottom: 2px solid #ffa500;
+			}
+			.mypanel {
+			  background: #111 !important;
+			}
+			.mypanel .mypanelhead {
+			  height: 38px;
+			  overflow: hidden;
+			  padding: 8px;
+			  font-size: 17px;
+			  color: #fff;
+			  background: #333;
+			}
+			.mypanel .mypanelhead a {
+			  -webkit-border-radius: 3px;
+			  border-radius: 3px;
+			  height: 21px;
+			  color: #fff;
+			  font-size: 12px;
+			  display: inline-block;
+			  background: #444;
+			  text-decoration: none;
+			  padding: 1px 7px;
+			}
+			.mypanel .mypanelhead a:hover {
+			  background: #555;
+			}
+			.mypanelstyle {
+			  background: #111;
+			}
+			@-moz-keyframes flicker {
+			  0% {
+			    border-color: #f00;
+			  }
+			  50% {
+			    border-color: #0f0;
+			  }
+			  100% {
+			    border-color: #f00;
+			  }
+			}
+			@-webkit-keyframes flicker {
+			  0% {
+			    border-color: #f00;
+			  }
+			  50% {
+			    border-color: #0f0;
+			  }
+			  100% {
+			    border-color: #f00;
+			  }
+			}
+			@-o-keyframes flicker {
+			  0% {
+			    border-color: #f00;
+			  }
+			  50% {
+			    border-color: #0f0;
+			  }
+			  100% {
+			    border-color: #f00;
+			  }
+			}
+			@keyframes flicker {
+			  0% {
+			    border-color: #f00;
+			  }
+			  50% {
+			    border-color: #0f0;
+			  }
+			  100% {
+			    border-color: #f00;
+			  }
+			}
+		</style>
+
+		<style>
+			.topBar {
+				padding-left: 24px;
+			}
+			.searchBar{
+				padding: 0 36px;
+			}
+		</style>
+	</body>
+</html>
