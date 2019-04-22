@@ -23,6 +23,10 @@
     max-width: 750px;
 }
 
+#videoWatch {
+    width: 66%;
+}
+
 #myad {
     margin:auto;
 }
@@ -30,6 +34,12 @@
 #myad img {
     max-width: 30vw;
     max-height: 400px;
+}
+
+#ytplayer {
+    width: 50vw;
+    height: 30vw;
+    margin: auto;
 }
 
 .blockHeader {
@@ -66,6 +76,11 @@
 }
 
 @media (max-width: 730px) {
+    #ytplayer {
+        width: 90vw;
+        height: 53vw;
+    }
+
     .myThumbnail {
         margin: auto;
         width: 100%;
