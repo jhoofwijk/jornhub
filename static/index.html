@@ -16,7 +16,11 @@
 				<div class="myThumbnail">
 					<a href="watch.html?id={{id}}" title="Redhead poledancing" class="box">
 						<div class="imgBox">
-							<img src="/img/thumb/{{img}}">
+							<picture>
+								<source type="image/webp" srcset="/img/thumb/{{webp}}">
+								<source srcset="/img/thumb/{{img}}">
+								<img src="/img/thumb/{{img}}">
+							</picture>
 
 							<div class="time">{{time}}</div>
 							<div class="rating">
@@ -36,7 +40,11 @@
 		<script id="myad-template" type="text/x-handlebars-template">
 			<div id="myad" class="myad">
 				<a href="/ads.html">
-					<img src="/img/myad/{{imageName}}"/>
+					<picture>
+						<source type="image/webp" srcset="/img/myad/{{webp}}">
+						<source srcset="/img/myad/{{img}}">
+						<img src="/img/myad/{{img}}">
+					</picture>
 				</a>
 			</div>
 		</script>
@@ -121,12 +129,6 @@
 
 
 		<script type="text/javascript">
-			var supportsWebp = false;
-			if(navigator.userAgent.indexOf("Chrome") !== -1 )
-			{
-				supportsWebp = true;
-			}
-			
 			Handlebars.registerHelper('formatCurrency', function(value) {
 				return value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 			});
@@ -205,9 +207,7 @@
 				el.id=i;
 				el.score = Math.round(Math.random() * 30 + 70)
 				el.views = Math.round(Math.random() * 2000000 + 100000)
-				if(supportsWebp) {
-					el.img = el.img.replace('png', 'webp');
-				}
+				el.webp = el.img.replace('png', 'webp');
 			});
 
 			var top6 = _.sampleSize(videos, 6);
@@ -230,20 +230,23 @@
 			$("#recommended").html(html);
 
 			var ads = "69.jpg  difference.jpg  DIY.jpg  nothing.jpg  priest.jpg  self.jpg  unemployed2.jpg  doneright.png".split("  ");
-			if(supportsWebp) {
-				var ads = "69.webp  difference.webp  DIY.webp  nothing.webp  priest.webp  self.webp  unemployed2.webp  doneright.webp".split("  ");
-			}
+			ads = ads.map(value => {
+				return {
+					img: value,
+					webp: value.replace("(jpg|png)", 'webp')
+				}
+			});
 			console.log(ads);
 
 			source   = $("#myad-template").html();
 			template = Handlebars.compile(source);
 			myads = _.sampleSize(ads, 3)
-			html    = template({imageName: myads[0]});
+			html    = template( myads[0]);
 			$("#myad1").replaceWith(html);
 
-			html    = template({imageName: myads[1]});
+			html    = template(myads[1]);
 			$("#myad2").replaceWith(html);
-			html    = template({imageName: myads[2]});
+			html    = template(myads[2]);
 			$("#myad3").replaceWith(html);
 
 		</script>
