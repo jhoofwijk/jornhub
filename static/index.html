@@ -233,7 +233,7 @@
 			ads = ads.map(value => {
 				return {
 					img: value,
-					webp: value.replace("(jpg|png)", 'webp')
+					webp: value.replace(/(jpg|png)/gi, 'webp')
 				}
 			});
 			console.log(ads);
