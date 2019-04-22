@@ -121,6 +121,12 @@
 
 
 		<script type="text/javascript">
+			var supportsWebp = false;
+			if(navigator.userAgent.indexOf("Chrome") !== -1 )
+			{
+				supportsWebp = true;
+			}
+			
 			Handlebars.registerHelper('formatCurrency', function(value) {
 				return value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 			});
@@ -199,6 +205,9 @@
 				el.id=i;
 				el.score = Math.round(Math.random() * 30 + 70)
 				el.views = Math.round(Math.random() * 2000000 + 100000)
+				if(supportsWebp) {
+					el.img = el.img.replace('png', 'webp');
+				}
 			});
 
 			var top6 = _.sampleSize(videos, 6);
@@ -221,6 +230,9 @@
 			$("#recommended").html(html);
 
 			var ads = "69.jpg  difference.jpg  DIY.jpg  nothing.jpg  priest.jpg  self.jpg  unemployed2.jpg  doneright.png".split("  ");
+			if(supportsWebp) {
+				var ads = "69.webp  difference.webp  DIY.webp  nothing.webp  priest.webp  self.webp  unemployed2.webp  doneright.webp".split("  ");
+			}
 			console.log(ads);
 
 			source   = $("#myad-template").html();

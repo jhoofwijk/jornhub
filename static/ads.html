@@ -101,6 +101,12 @@
 
 
 		<script type="text/javascript">
+			var supportsWebp = false;
+			if(navigator.userAgent.indexOf("Chrome") !== -1 )
+			{
+				supportsWebp = true;
+			}
+
 			$.urlParam = function(name){
 				var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
 				if (results==null){
@@ -168,13 +174,7 @@
 			      img: "mankini.png",
 			      time: "3:12",
 			      url: "iYlwzmj0dkw"
-			    }, 
-			    // {
-			    //   title: "Lesbian Fettish Halloween",
-			    //   img: "store.png",
-			    //   time: "3:46",
-			    //   url: "oRqdLZlsvbY"
-			    // }, 
+			    },
 			    {
 			      title: "MILF in lingerie",
 			      img: "milf.png",
@@ -198,6 +198,9 @@
 				el.score = Math.round(Math.random() * 30 + 70);
 				el.views = Math.round(Math.random() * 2000000 + 100000);
 				el.urlsrc = "https://www.youtube.com/embed/" + el.url;
+				if(supportsWebp) {
+					el.img = el.img.replace('png', 'webp');
+				}
 			});
 
 			var top6 = _.sampleSize(videos, 6);
@@ -213,6 +216,9 @@
 			$("#recommended").html(html);
 
 			var ads = "69.jpg  difference.jpg  DIY.jpg  nothing.jpg  priest.jpg  self.jpg  unemployed2.jpg  doneright.png".split("  ");
+			if(supportsWebp) {
+				var ads = "69.webp  difference.webp  DIY.webp  nothing.webp  priest.webp  self.webp  unemployed2.webp  doneright.webp".split("  ");
+			}
 
 			source   = $("#myad-template").html();
 			template = Handlebars.compile(source);
