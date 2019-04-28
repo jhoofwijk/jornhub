@@ -1,0 +1,32 @@
+{
+  "name": "jornhub-github",
+  "version": "1.0.0",
+  "description": "Pages for jornhub.nl",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhoofwijk/jornhub.git"
+  },
+  "keywords": [
+    "jornhub"
+  ],
+  "author": "Jorn Hoofwijk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhoofwijk/jornhub/issues"
+  },
+  "homepage": "https://github.com/jhoofwijk/jornhub#readme",
+  "dependencies": {
+    "preact": "^8.4.2",
+    "preact-compat": "^3.18.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-preact": "^1.1.0",
+    "parcel-bundler": "^1.12.3"
+  }
+}
