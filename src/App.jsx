@@ -1,8 +1,6 @@
 import { h, Component } from 'preact'
 import './App.css'
 
-const inTrain = true;
-
 function Thumbnail(props) {
   return (
     <div class="myThumbnail">
@@ -62,12 +60,9 @@ function Network(props) {
 function SearchBar(props) {
 	return (
     <div class="searchBar">
-      {
-        inTrain ? null : 
-        <a href="/" class="logo">
-          <img src="/img/logo.png"/>
-        </a>
-      }
+      <a href="/" class="logo">
+        <img src="/img/logo.png"/>
+      </a>
       <form action="/" method="get" class="hidden-xs">
         <input type="text" placeholder="Search..." name="q" class="searchbox"/><button class="typeselect">
           <i class="fa fa-video-camera fa-lg"></i>
