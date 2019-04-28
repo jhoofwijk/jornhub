@@ -27,9 +27,17 @@ function Thumbnail(props) {
   );
 }
 
-function Advertisement({img, webp}) {
+function VideoBlock({videos, id}) {
   return (
-    <div id="myad" class="myad">
+    <div id={id}>
+      {videos.map(video => <Thumbnail {...video} />)}
+    </div>
+  )
+}
+
+function Advertisement({img, webp, id}) {
+  return (
+    <div id={id} class="myad">
       <a href="/ads.html">
         <picture>
           <source type="image/webp" srcset={`/img/myad/${webp}`}/>
@@ -146,6 +154,14 @@ videos.forEach((el,i) => {
   el.webp = el.img.replace('png', 'webp');
 });
 
+var ads = "69.jpg  difference.jpg  DIY.jpg  nothing.jpg  priest.jpg  self.jpg  unemployed2.jpg  doneright.png".split("  ");
+ads = ads.map(value => {
+  return {
+    img: value,
+    webp: value.replace(/(jpg|png)/gi, 'webp')
+  }
+});
+
 
 function shuffle(arr) {
   let ret = Array.from(arr);
@@ -158,15 +174,56 @@ function sample(arr, count) {
   return shuffled.filter((v, i) => i < count);
 }
 
+
+
 export default class App extends Component {
   render() {
     return (
       <div>
         <Header/>
-        <div style={{color: "white"}}>
-          {JSON.stringify(sample(videos, 2))}
-        </div>
+        <Content/>
       </div>
     )
   }
+}
+
+
+function Content(props) {
+  const top6 = sample(videos, 6);
+  const mostViewed = sample(videos, 6);
+  const recommended = sample(videos, 6);
+  const ad = sample(ads, 3);
+
+  return (
+    <div>
+      <div id="container">
+        <div class="blockHeader">
+          Hot Jorn Videos In Netherlands
+        </div>
+        <div id="flexContainer">
+          <VideoBlock videos={top6} id='top6'/>
+          <Advertisement {...ad[0]} id='myad1'/>
+        </div>
+      </div>
+
+      <div id="container">
+        <div class="blockHeader">
+          Most Viewed In Netherlands
+        </div>
+        <VideoBlock videos={mostViewed} id='mostViewed'/>
+      </div>
+
+      <div id="addBlock">
+        <Advertisement {...ad[1]} id='myad2'/>
+        <Advertisement {...ad[2]} id='myad3'/>
+      </div>
+
+      <div id="container">
+        <div class="blockHeader">
+          Recommended for you
+        </div>
+        <VideoBlock videos={recommended} id='recommended'/>
+      </div>
+    </div>
+  );
 }

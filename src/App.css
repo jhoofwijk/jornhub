@@ -415,3 +415,11 @@ body {
     border-color: #f00;
     }
 }
+
+
+.topBar {
+    padding-left: 24px;
+}
+.searchBar{
+    padding: 0 36px;
+}
