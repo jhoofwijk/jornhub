@@ -139,7 +139,7 @@ const videos = [
   { title: "Sexy teen with one ball",                time: "3:47", url: "qPd1YWTSwE0", img: "kud.png" }
 ];
 
-videos.forEach(function(el,i){
+videos.forEach((el,i) => {
   el.id = i;
   el.score = Math.round(Math.random() * 30 + 70)
   el.views = Math.round(Math.random() * 2000000 + 100000)
@@ -157,8 +157,6 @@ function sample(arr, count) {
   let shuffled = shuffle(arr)
   return shuffled.filter((v, i) => i < count);
 }
-
-console.log(sample(videos, 2));
 
 export default class App extends Component {
   render() {
