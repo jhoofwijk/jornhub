@@ -91,17 +91,29 @@ function SearchBar(props) {
   );
 }
 
+function MenuItem({active, label}) {
+  return (
+    <a href="/" style={{
+      paddingBottom: active ? 0 : 2,
+      borderBottom: active ? '2px solid #ffa500' : '',
+    }}>
+      {label}
+      <i class="fa fa-caret-down fa-lg"></i>
+    </a>
+  );
+}
+
 function MenuBar(props) {
   return (
 		<div class="menuBar">
-      <a href="/" class="active">HOME</a>
-      <a href="/">VIDEOS<i class="fa fa-caret-down fa-lg"></i></a>
-      <a href="/">CATEGORIES<i class="fa fa-caret-down fa-lg"></i></a>
-      <a href="/">LIVE<i class="fa fa-caret-down fa-lg"></i></a>
-      <a href="/">PREMIUM HD<i class="fa fa-caret-down fa-lg"></i></a>
-      <a href="/">MEAT&amp;DUCK<i class="fa fa-caret-down fa-lg"></i></a>
-      <a href="/">COMMUNITY<i class="fa fa-caret-down fa-lg"></i></a>
-      <a href="/">PHOTOS&amp;GIFS<i class="fa fa-caret-down fa-lg"></i></a>
+      <MenuItem label="HOME" active={true}/>
+      <MenuItem label="VIDEOS"/>
+      <MenuItem label="CATEGORIES"/>
+      <MenuItem label="LIVE"/>
+      <MenuItem label="PREMIUM HD"/>
+      <MenuItem label="MEAT&amp;DUCK"/>
+      <MenuItem label="COMMUNITY"/>
+      <MenuItem label="PHOTOS&amp;GIFS"/>
     </div>
   );
 }
@@ -116,11 +128,51 @@ function Header() {
   )
 }
 
+const videos = [
+  { title: "Young black chick",                      time: "3:01", url: "dnIIA-6Kts0", img: "alfred.png" }, 
+  { title: "Youngest interracial on the internet",   time: "1:04", url: "uZpmokW7ZY4", img: "calimero.png" }, 
+  { title: "Uncle Fucker",                           time: "1:02", url: "VsMcdEswK8k", img: "uncle.png" }, 
+  { title: "Big cock with 5 young chicks",           time: "0:37", url: "WzTVkcHZkNE", img: "cock.png" }, 
+  { title: "Hottest chicks available",               time: "2:28", url: "rI8vc-f8LCU", img: "bbq.png" }, 
+  { title: "Knoxville Gay Dildo",                    time: "0:55", url: "g3eCHzFGXLg", img: "dildo.png" }, 
+  { title: "Redhead poledancing",                    time: "9:27", url: "lZAWFajua7g", img: "pole.png" }, 
+  { title: "Brunette striptease",                    time: "6:26", url: "A0yOGaTcPUw", img: "strip.png" }, 
+  { title: "Californian Red Hot Topless Quaddruple", time: "5:21", url: "YlUKcNNmywk", img: "chili.png" }, 
+  { title: "Sexy Green String",                      time: "3:12", url: "iYlwzmj0dkw", img: "mankini.png" }, 
+  { title: "MILF in lingerie",                       time: "4:00", url: "iwLaxZj8THw", img: "milf.png" }, 
+  { title: "Blonde Hairy Jorn",                      time: "8:41", url: "dEtyaC6ltQg", img: "star.png" }, 
+  { title: "Sexy teen with one ball",                time: "3:47", url: "qPd1YWTSwE0", img: "kud.png" }
+];
+
+videos.forEach(function(el,i){
+  el.id = i;
+  el.score = Math.round(Math.random() * 30 + 70)
+  el.views = Math.round(Math.random() * 2000000 + 100000)
+  el.webp = el.img.replace('png', 'webp');
+});
+
+
+function shuffle(arr) {
+  let ret = Array.from(arr);
+  ret.sort(() => (Math.random() > 0.5) ? 1: -1)
+  return ret;
+}
+
+function sample(arr, count) {
+  let shuffled = shuffle(arr)
+  return shuffled.filter((v, i) => i < count);
+}
+
+console.log(sample(videos, 2));
+
 export default class App extends Component {
   render() {
     return (
       <div>
         <Header/>
+        <div style={{color: "white"}}>
+          {JSON.stringify(sample(videos, 2))}
+        </div>
       </div>
     )
   }
