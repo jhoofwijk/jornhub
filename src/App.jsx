@@ -1,5 +1,7 @@
-import { h, Component } from 'preact'
-import './App.css'
+import { h, Component } from 'preact';
+import './bootstrap.css';
+import './font-awesome.css';
+import './App.css';
 
 function Thumbnail(props) {
   return (
@@ -53,14 +55,14 @@ function Network(props) {
   return (
     <div class="topBar">
       <b>Jornhub NETWORK</b>
-      <a href="/" class="partner">JornHub</a>
-      <a href="/" class="partner">YouJorn</a>
-      <a href="/" class="partner">LedTube</a>
-      <a href="/" class="partner">Cube8</a>
-      <a href="/" class="partner">JornMD</a>
-      <a href="/" class="partner">BankWire</a>
-      <a href="/" class="partner">KeesMovies</a>
-      <a href="/" class="partner">Jay Jorn</a>
+      <a href="/">JornHub</a>
+      <a href="/">YouJorn</a>
+      <a href="/">LedTube</a>
+      <a href="/">Cube8</a>
+      <a href="/">JornMD</a>
+      <a href="/">BankWire</a>
+      <a href="/">KeesMovies</a>
+      <a href="/">Jay Jorn</a>
     </div>
   );
 }
@@ -187,11 +189,12 @@ export default class App extends Component {
   }
 }
 
+// TODO add css baseline
 
 function Content(props) {
   const top6 = sample(videos, 6);
-  const mostViewed = sample(videos, 6);
-  const recommended = sample(videos, 6);
+  const mostViewed = sample(videos, 5);
+  const recommended = sample(videos, 5);
   const ad = sample(ads, 3);
 
   return (
