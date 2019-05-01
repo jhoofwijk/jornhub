@@ -2,7 +2,7 @@
   publish = "dist/"
 
 [[headers]]
-    for = /img/*
+    for = "/img/*"
 
     [headers.values]
-        Cache-Control: public, max-age=360000
+        Cache-Control = "public, max-age=360000"
