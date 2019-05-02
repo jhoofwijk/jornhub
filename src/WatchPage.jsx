@@ -22,36 +22,39 @@ export default class App extends Component {
   }
 }
 
+function urlParam(name){
+  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+  if (results==null){
+    return null;
+  }
+  else{
+    return results[1] || 0;
+  }
+}
+
+
 function Content(props) {
-  const top6 = sample(videos, 6);
-  const mostViewed = sample(videos, 5);
   const recommended = sample(videos, 5);
-  const ad = sample(ads, 3);
+  const ad = sample(ads, 1);
+
+  var videoId = urlParam("id");
 
   return (
     <div>
-      <div id="container">
+      <div id='container'>
         <div class="blockHeader">
-          Hot Jorn Videos In Netherlands
+          Watch video
         </div>
         <div id="flexContainer">
-          <VideoBlock videos={top6} id='top6'/>
-          <Advertisement {...ad[0]} id='myad1'/>
+          <div id="videoWatch">
+            <iframe id="ytplayer" src={videos[videoId].urlsrc} frameborder="0" allowfullscree="true"></iframe>
+          </div>
+          <div id="myad1">
+            <Advertisement {...ad[0]} />
+          </div>
         </div>
-      </div>
 
-      <div id="container">
-        <div class="blockHeader">
-          Most Viewed In Netherlands
-        </div>
-        <VideoBlock videos={mostViewed} id='mostViewed'/>
       </div>
-
-      <div id="addBlock">
-        <Advertisement {...ad[1]} id='myad2'/>
-        <Advertisement {...ad[2]} id='myad3'/>
-      </div>
-
       <div id="container">
         <div class="blockHeader">
           Recommended for you

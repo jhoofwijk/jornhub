@@ -1276,7 +1276,7 @@ function VideoBlock(_ref) {
     return (0, _preact.h)(_Thumbnail.Thumbnail, video);
   }));
 }
-},{"preact":"../node_modules/preact/dist/preact.mjs","./Thumbnail":"components/Thumbnail.jsx"}],"App.jsx":[function(require,module,exports) {
+},{"preact":"../node_modules/preact/dist/preact.mjs","./Thumbnail":"components/Thumbnail.jsx"}],"WatchPage.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1303,8 +1303,6 @@ var _ads = require("./components/ads");
 var _Advertisement = require("./components/Advertisement");
 
 var _VideoBlock = require("./components/VideoBlock");
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1347,36 +1345,36 @@ function (_Component) {
 
 exports.default = App;
 
+function urlParam(name) {
+  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+
+  if (results == null) {
+    return null;
+  } else {
+    return results[1] || 0;
+  }
+}
+
 function Content(props) {
-  var top6 = (0, _helpers.sample)(_videos.videos, 6);
-  var mostViewed = (0, _helpers.sample)(_videos.videos, 5);
   var recommended = (0, _helpers.sample)(_videos.videos, 5);
-  var ad = (0, _helpers.sample)(_ads.ads, 3);
+  var ad = (0, _helpers.sample)(_ads.ads, 1);
+  var videoId = urlParam("id");
   return (0, _preact.h)("div", null, (0, _preact.h)("div", {
     id: "container"
   }, (0, _preact.h)("div", {
     "class": "blockHeader"
-  }, "Hot Jorn Videos In Netherlands"), (0, _preact.h)("div", {
+  }, "Watch video"), (0, _preact.h)("div", {
     id: "flexContainer"
-  }, (0, _preact.h)(_VideoBlock.VideoBlock, {
-    videos: top6,
-    id: "top6"
-  }), (0, _preact.h)(_Advertisement.Advertisement, _extends({}, ad[0], {
-    id: "myad1"
-  })))), (0, _preact.h)("div", {
-    id: "container"
   }, (0, _preact.h)("div", {
-    "class": "blockHeader"
-  }, "Most Viewed In Netherlands"), (0, _preact.h)(_VideoBlock.VideoBlock, {
-    videos: mostViewed,
-    id: "mostViewed"
+    id: "videoWatch"
+  }, (0, _preact.h)("iframe", {
+    id: "ytplayer",
+    src: _videos.videos[videoId].urlsrc,
+    frameborder: "0",
+    allowfullscree: "true"
   })), (0, _preact.h)("div", {
-    id: "addBlock"
-  }, (0, _preact.h)(_Advertisement.Advertisement, _extends({}, ad[1], {
-    id: "myad2"
-  })), (0, _preact.h)(_Advertisement.Advertisement, _extends({}, ad[2], {
-    id: "myad3"
-  }))), (0, _preact.h)("div", {
+    id: "myad1"
+  }, (0, _preact.h)(_Advertisement.Advertisement, ad[0])))), (0, _preact.h)("div", {
     id: "container"
   }, (0, _preact.h)("div", {
     "class": "blockHeader"
@@ -1385,18 +1383,18 @@ function Content(props) {
     id: "recommended"
   })));
 }
-},{"preact":"../node_modules/preact/dist/preact.mjs","./bootstrap.css":"bootstrap.css","./font-awesome.css":"font-awesome.css","./App.css":"App.css","./components/Header":"components/Header.jsx","./components/helpers":"components/helpers.js","./components/videos":"components/videos.js","./components/ads":"components/ads.js","./components/Advertisement":"components/Advertisement.jsx","./components/VideoBlock":"components/VideoBlock.jsx"}],"index.js":[function(require,module,exports) {
+},{"preact":"../node_modules/preact/dist/preact.mjs","./bootstrap.css":"bootstrap.css","./font-awesome.css":"font-awesome.css","./App.css":"App.css","./components/Header":"components/Header.jsx","./components/helpers":"components/helpers.js","./components/videos":"components/videos.js","./components/ads":"components/ads.js","./components/Advertisement":"components/Advertisement.jsx","./components/VideoBlock":"components/VideoBlock.jsx"}],"watch.js":[function(require,module,exports) {
 "use strict";
 
 var _preact = require("preact");
 
-var _App = _interopRequireDefault(require("./App"));
+var _WatchPage = _interopRequireDefault(require("./WatchPage"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mountNode = document.getElementById('app');
-(0, _preact.render)((0, _preact.h)(_App.default, null), mountNode, mountNode.lastChild);
-},{"preact":"../node_modules/preact/dist/preact.mjs","./App":"App.jsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+(0, _preact.render)((0, _preact.h)(_WatchPage.default, null), mountNode, mountNode.lastChild);
+},{"preact":"../node_modules/preact/dist/preact.mjs","./WatchPage":"WatchPage.jsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1599,5 +1597,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","watch.js"], null)
+//# sourceMappingURL=/watch.50d58a41.js.map
