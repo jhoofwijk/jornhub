@@ -1276,7 +1276,7 @@ function VideoBlock(_ref) {
     return (0, _preact.h)(_Thumbnail.Thumbnail, video);
   }));
 }
-},{"preact":"../node_modules/preact/dist/preact.mjs","./Thumbnail":"components/Thumbnail.jsx"}],"WatchPage.jsx":[function(require,module,exports) {
+},{"preact":"../node_modules/preact/dist/preact.mjs","./Thumbnail":"components/Thumbnail.jsx"}],"AdsPage.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1357,8 +1357,7 @@ function urlParam(name) {
 
 function Content(props) {
   var recommended = (0, _helpers.sample)(_videos.videos, 5);
-  var ad = (0, _helpers.sample)(_ads.ads, 1);
-  var videoId = urlParam("id");
+  var add = (0, _helpers.shuffle)(_ads.ads);
   return (0, _preact.h)("div", null, (0, _preact.h)("div", {
     id: "container"
   }, (0, _preact.h)("div", {
@@ -1366,15 +1365,10 @@ function Content(props) {
   }, "Watch video"), (0, _preact.h)("div", {
     id: "flexContainer"
   }, (0, _preact.h)("div", {
-    id: "videoWatch"
-  }, (0, _preact.h)("iframe", {
-    id: "ytplayer",
-    src: _videos.videos[videoId].urlsrc,
-    frameborder: "0",
-    allowfullscree: "true"
-  })), (0, _preact.h)("div", {
     id: "myad1"
-  }, (0, _preact.h)(_Advertisement.Advertisement, ad[0])))), (0, _preact.h)("div", {
+  }, add.map(function (ad) {
+    return (0, _preact.h)(_Advertisement.Advertisement, ad);
+  })))), (0, _preact.h)("div", {
     id: "container"
   }, (0, _preact.h)("div", {
     "class": "blockHeader"
@@ -1383,18 +1377,18 @@ function Content(props) {
     id: "recommended"
   })));
 }
-},{"preact":"../node_modules/preact/dist/preact.mjs","./bootstrap.css":"bootstrap.css","./font-awesome.css":"font-awesome.css","./App.css":"App.css","./components/Header":"components/Header.jsx","./components/helpers":"components/helpers.js","./components/videos":"components/videos.js","./components/ads":"components/ads.js","./components/Advertisement":"components/Advertisement.jsx","./components/VideoBlock":"components/VideoBlock.jsx"}],"watch.js":[function(require,module,exports) {
+},{"preact":"../node_modules/preact/dist/preact.mjs","./bootstrap.css":"bootstrap.css","./font-awesome.css":"font-awesome.css","./App.css":"App.css","./components/Header":"components/Header.jsx","./components/helpers":"components/helpers.js","./components/videos":"components/videos.js","./components/ads":"components/ads.js","./components/Advertisement":"components/Advertisement.jsx","./components/VideoBlock":"components/VideoBlock.jsx"}],"ads.js":[function(require,module,exports) {
 "use strict";
 
 var _preact = require("preact");
 
-var _WatchPage = _interopRequireDefault(require("./WatchPage"));
+var _AdsPage = _interopRequireDefault(require("./AdsPage"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mountNode = document.getElementById('app');
-(0, _preact.render)((0, _preact.h)(_WatchPage.default, null), mountNode, mountNode.lastChild);
-},{"preact":"../node_modules/preact/dist/preact.mjs","./WatchPage":"WatchPage.jsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+(0, _preact.render)((0, _preact.h)(_AdsPage.default, null), mountNode, mountNode.lastChild);
+},{"preact":"../node_modules/preact/dist/preact.mjs","./AdsPage":"AdsPage.jsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1597,5 +1591,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","watch.js"], null)
-//# sourceMappingURL=/watch.50d58a41.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","ads.js"], null)
+//# sourceMappingURL=/ads.4efdfb0c.js.map

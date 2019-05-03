@@ -4,8 +4,8 @@
   "description": "Pages for jornhub.nl",
   "main": "index.html",
   "scripts": {
-    "start": "parcel src/index.html src/watch.html",
-    "build": "parcel build src/index.html src/watch.html",
+    "start": "parcel src/index.html src/watch.html src/ads.html",
+    "build": "parcel build src/index.html src/watch.html src/ads.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
