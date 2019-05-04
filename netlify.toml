@@ -1,6 +1,6 @@
 [build]
   publish = "dist/"
-  command = "npm run build && npx dist/index.html && npx dist/watch.html && npx dist/ads.html "
+  command = "npm run build && npx inline-assets dist/index.html && npx inline-assets dist/watch.html && npx inline-assets dist/ads.html "
 
 
 [[headers]]
