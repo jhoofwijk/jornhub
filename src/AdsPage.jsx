@@ -26,9 +26,6 @@ function Content(props) {
   return (
     <div>
       <div id='container'>
-        <div class="blockHeader">
-          Watch video
-        </div>
         <div id="flexContainer">
           <div id="addBlock">
             {
