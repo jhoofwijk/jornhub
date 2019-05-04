@@ -82,8 +82,12 @@
 
 @media (max-width: 730px) {
     #ytplayer {
-        width: 90vw;
+        width: 100%;
         height: 53vw;
+    }
+
+    #videoWatch {
+        width: 100%;
     }
 
     .myThumbnail {
@@ -120,7 +124,7 @@
     }
 
     .myad img {
-        max-width: 90vw;
+        max-width: 100%;
         max-height: 500px;
     }
 
@@ -157,7 +161,7 @@
     }
 
     #addBlock .myad img {
-        max-width: 90vw;
+        max-width: 100%;
         max-height: 500px;
     }
     #addBlock .myad {
