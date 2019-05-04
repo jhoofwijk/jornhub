@@ -1081,7 +1081,7 @@ function MenuBar(props) {
 }
 
 function Header() {
-  return (0, _preact.h)("div", null, (0, _preact.h)(Network, null), (0, _preact.h)(MenuBar, null));
+  return (0, _preact.h)("div", null, (0, _preact.h)(Network, null), (0, _preact.h)(SearchBar, null), (0, _preact.h)(MenuBar, null));
 }
 },{"preact":"../../node_modules/preact/dist/preact.mjs"}],"search.jsx":[function(require,module,exports) {
 "use strict";

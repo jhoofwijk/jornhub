@@ -77,7 +77,7 @@ export function Header() {
   return (
     <div>
       <Network/>
-      {/* <SearchBar/> */}
+      <SearchBar/>
       <MenuBar/>
     </div>
   )
