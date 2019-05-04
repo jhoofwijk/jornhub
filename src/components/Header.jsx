@@ -18,24 +18,25 @@ function Network(props) {
 
 function SearchBar(props) {
 	return (
-    <div class="searchBar">
+    <div class="searchBar" style={{display: 'flex', flexDirection: 'row'}}>
       <a href="/" class="logo">
         <img src="/img/logo.png"/>
       </a>
-      <form action="/" method="get" class="hidden-xs">
-        <input type="text" placeholder="Search..." name="q" class="searchbox"/><button class="typeselect" style={{paddingTop: 3}}>
+      <form action="/" method="get" class="hidden-xs" style={{margin: '15px 20px', flexGrow: 1, display: 'flex', alignItems: 'center'}}>
+        <input style={{flexGrow: 1, maxWidth: '700px', marginLeft: 'auto'}} type="text" placeholder="Search..." name="q" class="searchbox"/><button class="typeselect">
           <i class="fa fa-video-camera fa-lg"></i>
           <i class="fa fa-caret-down fa-lg"></i>
-        </button><button class="submitbtn" style={{paddingTop: 3}}>
+        </button><button class="submitbtn" style={{marginRight: 'auto'}}>
           <i class="fa fa-search fa-lg"></i>
         </button>
       </form>
-      <a href="#" class="uploadbtn">
+      <a href="#" class="uploadbtn" style={{margin: '15px 20px'}}>
         <i class="fa fa-arrow-up"></i> upload
       </a>
-      <a href="#" class="upgradebtn">
+      <a href="#" class="upgradebtn" style={{margin: '15px 20px'}}>
         <i class="fa fa-star"></i>  upgrade
       </a>
+
       <div class="pull-right">
         <a href="#">EN<i class="fa fa-caret-down fa-lg"></i></a>
         <a href="#">Loggin</a>
@@ -45,14 +46,14 @@ function SearchBar(props) {
   );
 }
 
-function MenuItem({active, label}) {
+function MenuItem({active, label, skipIcon}) {
   return (
     <a href="/" style={{
       paddingBottom: active ? 0 : 2,
       borderBottom: active ? '2px solid #ffa500' : '',
     }}>
       {label}
-      <i class="fa fa-caret-down fa-lg"></i>
+      {skipIcon ? null : <i class="fa fa-caret-down fa-lg"></i> }
     </a>
   );
 }
@@ -60,7 +61,7 @@ function MenuItem({active, label}) {
 function MenuBar(props) {
   return (
 		<div class="menuBar">
-      <MenuItem label="HOME" active={true}/>
+      <MenuItem label="HOME" active skipIcon/>
       <MenuItem label="VIDEOS"/>
       <MenuItem label="CATEGORIES"/>
       <MenuItem label="LIVE"/>
@@ -76,7 +77,7 @@ export function Header() {
   return (
     <div>
       <Network/>
-      <SearchBar/>
+      {/* <SearchBar/> */}
       <MenuBar/>
     </div>
   )
