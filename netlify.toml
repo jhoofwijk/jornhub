@@ -5,13 +5,23 @@
 
 [[headers]]
     for = "/img/*"
-
     [headers.values]
         Cache-Control = "public, max-age=360000"
 
 
 [[headers]]
     for = "*.ico"
-
     [headers.values]
         Cache-Control = "public, max-age=360000"
+
+
+[[headers]]
+    for = "*.js"
+    [headers.values]
+        Cache-Control = "public, max-age=360000"
+
+[[headers]]
+    for = "*.css"
+    [headers.values]
+        Cache-Control = "public, max-age=360000"
+
