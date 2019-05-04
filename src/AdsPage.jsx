@@ -1,7 +1,4 @@
 import { h, Component } from 'preact';
-import './bootstrap.css';
-import './font-awesome.css';
-import './App.css';
 
 import { Header } from './components/Header';
 import { sample, shuffle } from './components/helpers';
