@@ -162,7 +162,6 @@
 }
 
 @media (max-width: 400px) {
-
     .myThumbnail .textbox .text {
         font-size: 25px;
     }
@@ -174,7 +173,6 @@
     .blockHeader {
         font-size: 23px;
     }
-
 }
 
 
