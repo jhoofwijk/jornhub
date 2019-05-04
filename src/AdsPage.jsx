@@ -33,7 +33,7 @@ function Content(props) {
           Watch video
         </div>
         <div id="flexContainer">
-          <div id="myad1">
+          <div id="addBlock">
             {
                 add.map(ad => 
                     <Advertisement {...ad} />

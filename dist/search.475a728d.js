@@ -935,155 +935,220 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../components/Header.jsx":[function(require,module,exports) {
+},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../components/helpers.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Header = Header;
+exports.shuffle = shuffle;
+exports.sample = sample;
+
+function shuffle(arr) {
+  var array = Array.from(arr);
+
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var _ref = [array[j], array[i]];
+    array[i] = _ref[0];
+    array[j] = _ref[1];
+  }
+
+  return array;
+}
+
+function sample(arr, count) {
+  var shuffled = shuffle(arr);
+  return shuffled.filter(function (_v, i) {
+    return i < count;
+  });
+}
+},{}],"../components/videos.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.videos = void 0;
+var videos = [{
+  title: "Young black chick",
+  time: "3:01",
+  url: "dnIIA-6Kts0",
+  img: "alfred.png"
+}, {
+  title: "Youngest interracial on the internet",
+  time: "1:04",
+  url: "uZpmokW7ZY4",
+  img: "calimero.png"
+}, {
+  title: "Uncle Fucker",
+  time: "1:02",
+  url: "VsMcdEswK8k",
+  img: "uncle.png"
+}, {
+  title: "Big cock with 5 young chicks",
+  time: "0:37",
+  url: "WzTVkcHZkNE",
+  img: "cock.png"
+}, {
+  title: "Hottest chicks available",
+  time: "2:28",
+  url: "rI8vc-f8LCU",
+  img: "bbq.png"
+}, {
+  title: "Knoxville Gay Dildo",
+  time: "0:55",
+  url: "g3eCHzFGXLg",
+  img: "dildo.png"
+}, {
+  title: "Redhead poledancing",
+  time: "9:27",
+  url: "lZAWFajua7g",
+  img: "pole.png"
+}, {
+  title: "Brunette striptease",
+  time: "6:26",
+  url: "A0yOGaTcPUw",
+  img: "strip.png"
+}, {
+  title: "Californian Red Hot Topless Quaddruple",
+  time: "5:21",
+  url: "YlUKcNNmywk",
+  img: "chili.png"
+}, {
+  title: "Sexy Green String",
+  time: "3:12",
+  url: "iYlwzmj0dkw",
+  img: "mankini.png"
+}, {
+  title: "MILF in lingerie",
+  time: "4:00",
+  url: "iwLaxZj8THw",
+  img: "milf.png"
+}, {
+  title: "Blonde Hairy Jorn",
+  time: "8:41",
+  url: "dEtyaC6ltQg",
+  img: "star.png"
+}, {
+  title: "Sexy teen with one ball",
+  time: "3:47",
+  url: "qPd1YWTSwE0",
+  img: "kud.png"
+}];
+exports.videos = videos;
+videos.forEach(function (el, i) {
+  el.id = i;
+  el.score = Math.round(Math.random() * 30 + 70);
+  el.views = Math.round(Math.random() * 2000000 + 100000);
+  el.webp = el.img.replace('png', 'webp');
+  el.urlsrc = "https://www.youtube.com/embed/" + el.url;
+});
+},{}],"../components/ads.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ads = void 0;
+var ads = "69.jpg  difference.jpg  DIY.jpg  nothing.jpg  priest.jpg  self.jpg  unemployed2.jpg  doneright.png".split("  ");
+exports.ads = ads;
+exports.ads = ads = ads.map(function (value) {
+  return {
+    img: value,
+    webp: value.replace(/(jpg|png)/gi, 'webp')
+  };
+});
+},{}],"../components/Advertisement.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Advertisement = Advertisement;
 
 var _preact = require("preact");
 
-function Network(props) {
+function Advertisement(_ref) {
+  var img = _ref.img,
+      webp = _ref.webp,
+      id = _ref.id;
   return (0, _preact.h)("div", {
-    "class": "topBar"
-  }, (0, _preact.h)("b", null, "Jornhub NETWORK"), (0, _preact.h)("a", {
-    href: "/"
-  }, "JornHub"), (0, _preact.h)("a", {
-    href: "/"
-  }, "YouJorn"), (0, _preact.h)("a", {
-    href: "/"
-  }, "LedTube"), (0, _preact.h)("a", {
-    href: "/"
-  }, "Cube8"), (0, _preact.h)("a", {
-    href: "/"
-  }, "JornMD"), (0, _preact.h)("a", {
-    href: "/"
-  }, "BankWire"), (0, _preact.h)("a", {
-    href: "/"
-  }, "KeesMovies"), (0, _preact.h)("a", {
-    href: "/"
-  }, "Jay Jorn"));
+    id: id,
+    "class": "myad"
+  }, (0, _preact.h)("a", {
+    href: "/ads.html"
+  }, (0, _preact.h)("picture", null, (0, _preact.h)("source", {
+    type: "image/webp",
+    srcset: "/img/myad/".concat(webp)
+  }), (0, _preact.h)("source", {
+    srcset: "/img/myad/".concat(img)
+  }), (0, _preact.h)("img", {
+    src: "/img/myad/".concat(img)
+  }))));
 }
+},{"preact":"../../node_modules/preact/dist/preact.mjs"}],"../components/Thumbnail.jsx":[function(require,module,exports) {
+"use strict";
 
-function SearchBar(props) {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Thumbnail = Thumbnail;
+
+var _preact = require("preact");
+
+function Thumbnail(props) {
   return (0, _preact.h)("div", {
-    "class": "searchBar",
-    style: {
-      display: 'flex',
-      flexDirection: 'row'
-    }
+    "class": "myThumbnail"
   }, (0, _preact.h)("a", {
-    href: "/",
-    "class": "logo"
-  }, (0, _preact.h)("img", {
-    src: "/img/logo.png"
-  })), (0, _preact.h)("form", {
-    action: "/",
-    method: "get",
-    "class": "hidden-xs",
-    style: {
-      margin: '15px 20px',
-      flexGrow: 1,
-      display: 'flex',
-      alignItems: 'center'
-    }
-  }, (0, _preact.h)("input", {
-    style: {
-      flexGrow: 1,
-      maxWidth: '700px',
-      marginLeft: 'auto'
-    },
-    type: "text",
-    placeholder: "Search...",
-    name: "q",
-    "class": "searchbox"
-  }), (0, _preact.h)("button", {
-    "class": "typeselect"
+    href: "watch.html?id=".concat(props.id),
+    title: "Redhead poledancing",
+    "class": "box"
+  }, (0, _preact.h)("div", {
+    "class": "imgBox"
+  }, (0, _preact.h)("picture", null, (0, _preact.h)("source", {
+    type: "image/webp",
+    srcset: "/img/thumb/".concat(props.webp)
+  }), (0, _preact.h)("source", {
+    srcset: "/img/thumb/".concat(props.img)
+  }), (0, _preact.h)("img", {
+    src: "/img/thumb/".concat(props.img)
+  })), (0, _preact.h)("div", {
+    "class": "time"
+  }, props.time), (0, _preact.h)("div", {
+    "class": "rating"
   }, (0, _preact.h)("i", {
-    "class": "fa fa-video-camera fa-lg"
-  }), (0, _preact.h)("i", {
-    "class": "fa fa-caret-down fa-lg"
-  })), (0, _preact.h)("button", {
-    "class": "submitbtn",
-    style: {
-      marginRight: 'auto'
-    }
-  }, (0, _preact.h)("i", {
-    "class": "fa fa-search fa-lg"
-  }))), (0, _preact.h)("a", {
-    href: "#",
-    "class": "uploadbtn",
-    style: {
-      margin: '15px 20px'
-    }
-  }, (0, _preact.h)("i", {
-    "class": "fa fa-arrow-up"
-  }), " upload"), (0, _preact.h)("a", {
-    href: "#",
-    "class": "upgradebtn",
-    style: {
-      margin: '15px 20px'
-    }
-  }, (0, _preact.h)("i", {
-    "class": "fa fa-star"
-  }), "  upgrade"), (0, _preact.h)("div", {
-    "class": "pull-right"
-  }, (0, _preact.h)("a", {
-    href: "#"
-  }, "EN", (0, _preact.h)("i", {
-    "class": "fa fa-caret-down fa-lg"
-  })), (0, _preact.h)("a", {
-    href: "#"
-  }, "Loggin"), (0, _preact.h)("a", {
-    href: "#"
-  }, "Sign Up")));
+    "class": "fa fa-thumbs-up"
+  }), (0, _preact.h)("span", null, props.score, "%"))), (0, _preact.h)("div", {
+    "class": "textbox"
+  }, (0, _preact.h)("span", {
+    "class": "text"
+  }, props.title)), (0, _preact.h)("div", {
+    "class": "views"
+  }, props.views, " VIEWS")));
 }
+},{"preact":"../../node_modules/preact/dist/preact.mjs"}],"../components/VideoBlock.jsx":[function(require,module,exports) {
+"use strict";
 
-function MenuItem(_ref) {
-  var active = _ref.active,
-      label = _ref.label,
-      skipIcon = _ref.skipIcon;
-  return (0, _preact.h)("a", {
-    href: "/",
-    style: {
-      paddingBottom: active ? 0 : 2,
-      borderBottom: active ? '2px solid #ffa500' : ''
-    }
-  }, label, skipIcon ? null : (0, _preact.h)("i", {
-    "class": "fa fa-caret-down fa-lg"
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.VideoBlock = VideoBlock;
+
+var _preact = require("preact");
+
+var _Thumbnail = require("./Thumbnail");
+
+function VideoBlock(_ref) {
+  var videos = _ref.videos,
+      id = _ref.id;
+  return (0, _preact.h)("div", {
+    id: id
+  }, videos.map(function (video) {
+    return (0, _preact.h)(_Thumbnail.Thumbnail, video);
   }));
 }
-
-function MenuBar(props) {
-  return (0, _preact.h)("div", {
-    "class": "menuBar"
-  }, (0, _preact.h)(MenuItem, {
-    label: "HOME",
-    active: true,
-    skipIcon: true
-  }), (0, _preact.h)(MenuItem, {
-    label: "VIDEOS"
-  }), (0, _preact.h)(MenuItem, {
-    label: "CATEGORIES"
-  }), (0, _preact.h)(MenuItem, {
-    label: "LIVE"
-  }), (0, _preact.h)(MenuItem, {
-    label: "PREMIUM HD"
-  }), (0, _preact.h)(MenuItem, {
-    label: "MEAT&DUCK"
-  }), (0, _preact.h)(MenuItem, {
-    label: "COMMUNITY"
-  }), (0, _preact.h)(MenuItem, {
-    label: "PHOTOS&GIFS"
-  }));
-}
-
-function Header() {
-  return (0, _preact.h)("div", null, (0, _preact.h)(Network, null), (0, _preact.h)(SearchBar, null), (0, _preact.h)(MenuBar, null));
-}
-},{"preact":"../../node_modules/preact/dist/preact.mjs"}],"search.jsx":[function(require,module,exports) {
+},{"preact":"../../node_modules/preact/dist/preact.mjs","./Thumbnail":"../components/Thumbnail.jsx"}],"search.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1099,7 +1164,15 @@ require("../font-awesome.css");
 
 require("../App.css");
 
-var _Header = require("../components/Header");
+var _helpers = require("../components/helpers");
+
+var _videos = require("../components/videos");
+
+var _ads = require("../components/ads");
+
+var _Advertisement = require("../components/Advertisement");
+
+var _VideoBlock = require("../components/VideoBlock");
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1133,7 +1206,7 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return (0, _preact.h)("div", null, (0, _preact.h)(_Header.Header, null));
+      return (0, _preact.h)("div", null, (0, _preact.h)(Content, null));
     }
   }]);
 
@@ -1141,7 +1214,30 @@ function (_Component) {
 }(_preact.Component);
 
 exports.default = App;
-},{"preact":"../../node_modules/preact/dist/preact.mjs","../bootstrap.css":"../bootstrap.css","../font-awesome.css":"../font-awesome.css","../App.css":"../App.css","../components/Header":"../components/Header.jsx"}],"search.js":[function(require,module,exports) {
+
+function Content(props) {
+  var recommended = (0, _helpers.sample)(_videos.videos, 5);
+  var add = (0, _helpers.shuffle)(_ads.ads);
+  return (0, _preact.h)("div", null, (0, _preact.h)("div", {
+    id: "container"
+  }, (0, _preact.h)("div", {
+    "class": "blockHeader"
+  }, "Watch video"), (0, _preact.h)("div", {
+    id: "flexContainer"
+  }, (0, _preact.h)("div", {
+    id: "addBlock"
+  }, add.map(function (ad) {
+    return (0, _preact.h)(_Advertisement.Advertisement, ad);
+  })))), (0, _preact.h)("div", {
+    id: "container"
+  }, (0, _preact.h)("div", {
+    "class": "blockHeader"
+  }, "Recommended for you"), (0, _preact.h)(_VideoBlock.VideoBlock, {
+    videos: recommended,
+    id: "recommended"
+  })));
+}
+},{"preact":"../../node_modules/preact/dist/preact.mjs","../bootstrap.css":"../bootstrap.css","../font-awesome.css":"../font-awesome.css","../App.css":"../App.css","../components/helpers":"../components/helpers.js","../components/videos":"../components/videos.js","../components/ads":"../components/ads.js","../components/Advertisement":"../components/Advertisement.jsx","../components/VideoBlock":"../components/VideoBlock.jsx"}],"search.js":[function(require,module,exports) {
 "use strict";
 
 var _preact = require("preact");

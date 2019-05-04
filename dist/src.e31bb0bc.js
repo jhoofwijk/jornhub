@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/preact/dist/preact.mjs":[function(require,module,exports) {
+})({"../../node_modules/preact/dist/preact.mjs":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -853,7 +853,7 @@ var preact = {
 };
 var _default = preact;
 exports.default = _default;
-},{}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{}],"../../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -885,7 +885,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -920,22 +920,22 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"bootstrap.css":[function(require,module,exports) {
+},{"./bundle-url":"../../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../bootstrap.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"font-awesome.css":[function(require,module,exports) {
+},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../font-awesome.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"App.css":[function(require,module,exports) {
+},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../App.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Header.jsx":[function(require,module,exports) {
+},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../components/Header.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -969,7 +969,11 @@ function Network(props) {
 
 function SearchBar(props) {
   return (0, _preact.h)("div", {
-    "class": "searchBar"
+    "class": "searchBar",
+    style: {
+      display: 'flex',
+      flexDirection: 'row'
+    }
   }, (0, _preact.h)("a", {
     href: "/",
     "class": "logo"
@@ -978,17 +982,25 @@ function SearchBar(props) {
   })), (0, _preact.h)("form", {
     action: "/",
     method: "get",
-    "class": "hidden-xs"
+    "class": "hidden-xs",
+    style: {
+      margin: '15px 20px',
+      flexGrow: 1,
+      display: 'flex',
+      alignItems: 'center'
+    }
   }, (0, _preact.h)("input", {
+    style: {
+      flexGrow: 1,
+      maxWidth: '700px',
+      marginLeft: 'auto'
+    },
     type: "text",
     placeholder: "Search...",
     name: "q",
     "class": "searchbox"
   }), (0, _preact.h)("button", {
-    "class": "typeselect",
-    style: {
-      paddingTop: 3
-    }
+    "class": "typeselect"
   }, (0, _preact.h)("i", {
     "class": "fa fa-video-camera fa-lg"
   }), (0, _preact.h)("i", {
@@ -996,18 +1008,24 @@ function SearchBar(props) {
   })), (0, _preact.h)("button", {
     "class": "submitbtn",
     style: {
-      paddingTop: 3
+      marginRight: 'auto'
     }
   }, (0, _preact.h)("i", {
     "class": "fa fa-search fa-lg"
   }))), (0, _preact.h)("a", {
     href: "#",
-    "class": "uploadbtn"
+    "class": "uploadbtn",
+    style: {
+      margin: '15px 20px'
+    }
   }, (0, _preact.h)("i", {
     "class": "fa fa-arrow-up"
   }), " upload"), (0, _preact.h)("a", {
     href: "#",
-    "class": "upgradebtn"
+    "class": "upgradebtn",
+    style: {
+      margin: '15px 20px'
+    }
   }, (0, _preact.h)("i", {
     "class": "fa fa-star"
   }), "  upgrade"), (0, _preact.h)("div", {
@@ -1025,14 +1043,15 @@ function SearchBar(props) {
 
 function MenuItem(_ref) {
   var active = _ref.active,
-      label = _ref.label;
+      label = _ref.label,
+      skipIcon = _ref.skipIcon;
   return (0, _preact.h)("a", {
     href: "/",
     style: {
       paddingBottom: active ? 0 : 2,
       borderBottom: active ? '2px solid #ffa500' : ''
     }
-  }, label, (0, _preact.h)("i", {
+  }, label, skipIcon ? null : (0, _preact.h)("i", {
     "class": "fa fa-caret-down fa-lg"
   }));
 }
@@ -1042,7 +1061,8 @@ function MenuBar(props) {
     "class": "menuBar"
   }, (0, _preact.h)(MenuItem, {
     label: "HOME",
-    active: true
+    active: true,
+    skipIcon: true
   }), (0, _preact.h)(MenuItem, {
     label: "VIDEOS"
   }), (0, _preact.h)(MenuItem, {
@@ -1063,7 +1083,7 @@ function MenuBar(props) {
 function Header() {
   return (0, _preact.h)("div", null, (0, _preact.h)(Network, null), (0, _preact.h)(SearchBar, null), (0, _preact.h)(MenuBar, null));
 }
-},{"preact":"../node_modules/preact/dist/preact.mjs"}],"components/helpers.js":[function(require,module,exports) {
+},{"preact":"../../node_modules/preact/dist/preact.mjs"}],"../components/helpers.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1091,7 +1111,7 @@ function sample(arr, count) {
     return i < count;
   });
 }
-},{}],"components/videos.js":[function(require,module,exports) {
+},{}],"../components/videos.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1172,7 +1192,7 @@ videos.forEach(function (el, i) {
   el.webp = el.img.replace('png', 'webp');
   el.urlsrc = "https://www.youtube.com/embed/" + el.url;
 });
-},{}],"components/ads.js":[function(require,module,exports) {
+},{}],"../components/ads.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1187,7 +1207,7 @@ exports.ads = ads = ads.map(function (value) {
     webp: value.replace(/(jpg|png)/gi, 'webp')
   };
 });
-},{}],"components/Advertisement.jsx":[function(require,module,exports) {
+},{}],"../components/Advertisement.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1215,7 +1235,7 @@ function Advertisement(_ref) {
     src: "/img/myad/".concat(img)
   }))));
 }
-},{"preact":"../node_modules/preact/dist/preact.mjs"}],"components/Thumbnail.jsx":[function(require,module,exports) {
+},{"preact":"../../node_modules/preact/dist/preact.mjs"}],"../components/Thumbnail.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1255,7 +1275,7 @@ function Thumbnail(props) {
     "class": "views"
   }, props.views, " VIEWS")));
 }
-},{"preact":"../node_modules/preact/dist/preact.mjs"}],"components/VideoBlock.jsx":[function(require,module,exports) {
+},{"preact":"../../node_modules/preact/dist/preact.mjs"}],"../components/VideoBlock.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1276,7 +1296,7 @@ function VideoBlock(_ref) {
     return (0, _preact.h)(_Thumbnail.Thumbnail, video);
   }));
 }
-},{"preact":"../node_modules/preact/dist/preact.mjs","./Thumbnail":"components/Thumbnail.jsx"}],"App.jsx":[function(require,module,exports) {
+},{"preact":"../../node_modules/preact/dist/preact.mjs","./Thumbnail":"../components/Thumbnail.jsx"}],"App.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1385,7 +1405,7 @@ function Content(props) {
     id: "recommended"
   })));
 }
-},{"preact":"../node_modules/preact/dist/preact.mjs","./bootstrap.css":"bootstrap.css","./font-awesome.css":"font-awesome.css","./App.css":"App.css","./components/Header":"components/Header.jsx","./components/helpers":"components/helpers.js","./components/videos":"components/videos.js","./components/ads":"components/ads.js","./components/Advertisement":"components/Advertisement.jsx","./components/VideoBlock":"components/VideoBlock.jsx"}],"index.js":[function(require,module,exports) {
+},{"preact":"../../node_modules/preact/dist/preact.mjs","./bootstrap.css":"../bootstrap.css","./font-awesome.css":"../font-awesome.css","./App.css":"../App.css","./components/Header":"../components/Header.jsx","./components/helpers":"../components/helpers.js","./components/videos":"../components/videos.js","./components/ads":"../components/ads.js","./components/Advertisement":"../components/Advertisement.jsx","./components/VideoBlock":"../components/VideoBlock.jsx"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _preact = require("preact");
@@ -1396,7 +1416,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mountNode = document.getElementById('app');
 (0, _preact.render)((0, _preact.h)(_App.default, null), mountNode, mountNode.lastChild);
-},{"preact":"../node_modules/preact/dist/preact.mjs","./App":"App.jsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"preact":"../../node_modules/preact/dist/preact.mjs","./App":"App.jsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1424,7 +1444,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43471" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34231" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
