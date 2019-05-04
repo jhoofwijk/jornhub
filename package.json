@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/jhoofwijk/jornhub#readme",
   "dependencies": {
+    "inline-assets": "^1.4.2",
     "preact": "^8.4.2",
     "preact-compat": "^3.18.5",
     "react-icons-kit": "^1.3.1"
