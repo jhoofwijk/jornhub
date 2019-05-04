@@ -1,5 +1,9 @@
 import { h, Component } from 'preact';
 
+
+import { Icon } from 'react-icons-kit'
+import { thumbsUp } from 'react-icons-kit/fa/thumbsUp'
+
 export function Thumbnail(props) {
   return (
     <div class="myThumbnail">
@@ -13,7 +17,8 @@ export function Thumbnail(props) {
 
           <div class="time">{props.time}</div>
           <div class="rating">
-            <i class="fa fa-thumbs-up"></i>
+            {/* <ThumbUp/> */}
+            <Icon icon={thumbsUp} />
             <span>{props.score}%</span>
           </div>
         </div>
