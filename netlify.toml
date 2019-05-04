@@ -8,3 +8,10 @@
 
     [headers.values]
         Cache-Control = "public, max-age=360000"
+
+
+[[headers]]
+    for = "/*.ico"
+
+    [headers.values]
+        Cache-Control = "public, max-age=360000"
