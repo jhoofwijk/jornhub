@@ -22,17 +22,6 @@ export default class App extends Component {
   }
 }
 
-function urlParam(name){
-  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-  if (results==null){
-    return null;
-  }
-  else{
-    return results[1] || 0;
-  }
-}
-
-
 function Content(props) {
   const recommended = sample(videos, 5);
   const add = shuffle(ads);
