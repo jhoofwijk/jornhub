@@ -1,0 +1,34 @@
+
+all:
+	cwebp -q 80 alfred.png -o alfred.webp
+	cwebp -q 80 alfred_raw.png -o alfred_raw.webp
+	cwebp -q 80 bbq.png -o bbq.webp
+	cwebp -q 80 bbq_raw.png -o bbq_raw.webp
+	cwebp -q 80 calimero.png -o calimero.webp
+	cwebp -q 80 calimero_raw.png -o calimero_raw.webp
+	cwebp -q 80 chili.png -o chili.webp
+	cwebp -q 80 chili_raw.png -o chili_raw.webp
+	cwebp -q 80 cock.png -o cock.webp
+	cwebp -q 80 cock_raw.png -o cock_raw.webp
+	cwebp -q 80 dildo.png -o dildo.webp
+	cwebp -q 80 dildo_raw.png -o dildo_raw.webp
+	cwebp -q 80 kud.png -o kud.webp
+	cwebp -q 80 kud_raw.png -o kud_raw.webp
+	cwebp -q 80 mankini.png -o mankini.webp
+	cwebp -q 80 mankini_raw.png -o mankini_raw.webp
+	cwebp -q 80 milf.png -o milf.webp
+	cwebp -q 80 milf_raw.png -o milf_raw.webp
+	cwebp -q 80 pole.png -o pole.webp
+	cwebp -q 80 pole_raw.png -o pole_raw.webp
+	cwebp -q 80 redis.png -o redis.webp
+	cwebp -q 80 sax.png -o sax.webp
+	cwebp -q 80 star.png -o star.webp
+	cwebp -q 80 star_raw.png -o star_raw.webp
+	cwebp -q 80 store.png -o store.webp
+	cwebp -q 80 store_raw.png -o store_raw.webp
+	cwebp -q 80 strip.png -o strip.webp
+	cwebp -q 80 strip_raw.png -o strip_raw.webp
+	cwebp -q 80 test1.png -o test1.webp
+	cwebp -q 80 test2.png -o test2.webp
+	cwebp -q 80 uncle.png -o uncle.webp
+	cwebp -q 80 uncle_raw.png -o uncle_raw.webp
