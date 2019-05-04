@@ -1,6 +1,11 @@
 import { h, Component } from 'preact';
 
-import { FaSearch, FaCaretDown, FaVideo, FaStar, FaArrowUp } from 'react-icons/fa';
+import { Icon } from 'react-icons-kit'
+import { search } from 'react-icons-kit/fa/search'
+import { caretDown } from 'react-icons-kit/fa/caretDown'
+import { videoCamera } from 'react-icons-kit/fa/videoCamera'
+import { star } from 'react-icons-kit/fa/star'
+import { arrowUp } from 'react-icons-kit/fa/arrowUp'
 
 function Network(props) {
   return (
@@ -26,21 +31,21 @@ function SearchBar(props) {
       </a>
       <form action="/" method="get" class="hidden-xs" style={{margin: '15px 20px', flexGrow: 1, display: 'flex', alignItems: 'center'}}>
         <input style={{flexGrow: 1, maxWidth: '700px', marginLeft: 'auto'}} type="text" placeholder="Search..." name="q" class="searchbox"/><button class="typeselect">
-          <FaVideo class='fa-lg' />
-          <FaCaretDown class='fa-lg' />
+          <Icon icon={videoCamera}/>
+          <Icon icon={caretDown}/>
         </button><button class="submitbtn" style={{marginRight: 'auto'}}>
-          <FaSearch class='fa-lg' />
+          <Icon icon={search}/>
         </button>
       </form>
       <a href="#" class="uploadbtn" style={{margin: '15px 20px'}}>
-        <FaArrowUp /> upload
+        <Icon icon={arrowUp}/> upload
       </a>
       <a href="#" class="upgradebtn" style={{margin: '15px 20px'}}>
-        <FaStar />  upgrade
+        <Icon icon={star}/> upgrade
       </a>
 
       <div class="pull-right">
-        <a href="#">EN <FaCaretDown /></a>
+        <a href="#">EN <Icon icon={caretDown}/></a>
         <a href="#">Loggin</a>
         <a href="#">Sign Up</a>
       </div>
@@ -55,7 +60,7 @@ function MenuItem({active, label, skipIcon}) {
       borderBottom: active ? '2px solid #ffa500' : '',
     }}>
       {label}
-      {skipIcon ? null : <FaCaretDown /> }
+      {skipIcon ? null : <Icon icon={caretDown}/> }
     </a>
   );
 }
