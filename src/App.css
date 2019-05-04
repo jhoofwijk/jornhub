@@ -1,5 +1,4 @@
 @import './bootstrap.css';
-@import './font-awesome.css';
 
 
 .myThumbnail{border:none;display:inline-block;width:233px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:5px;height:250px;overflow-y: hidden;}
