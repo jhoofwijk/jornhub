@@ -32,3 +32,4 @@ all:
 	cwebp -q 80 test2.png -o test2.webp
 	cwebp -q 80 uncle.png -o uncle.webp
 	cwebp -q 80 uncle_raw.png -o uncle_raw.webp
+	cwebp -q 80 dora.png -o dora.webp
