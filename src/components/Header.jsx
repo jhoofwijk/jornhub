@@ -7,6 +7,8 @@ import { videoCamera } from 'react-icons-kit/fa/videoCamera'
 import { star } from 'react-icons-kit/fa/star'
 import { arrowUp } from 'react-icons-kit/fa/arrowUp'
 
+import logo from "../img/logo.png"
+
 function Network(props) {
   return (
     <div class="topBar">
@@ -27,7 +29,7 @@ function SearchBar(props) {
 	return (
     <div class="searchBar" style={{display: 'flex', flexDirection: 'row'}}>
       <a href="/" class="logo">
-        <img src="/img/logo.png"/>
+        <img src={logo}/>
       </a>
       <form action="/" method="get" class="hidden-xs" style={{margin: '15px 20px', flexGrow: 1, display: 'flex', alignItems: 'center'}}>
         <input style={{flexGrow: 1, maxWidth: '700px', marginLeft: 'auto'}} type="text" placeholder="Search..." name="q" class="searchbox"/><button class="typeselect">
@@ -37,10 +39,10 @@ function SearchBar(props) {
           <Icon icon={search}/>
         </button>
       </form>
-      <a href="#" class="uploadbtn" style={{margin: '15px 20px'}}>
+      <a href="#" class="uploadbtn" style={{margin: '15px 20px', whiteSpace: 'nowrap'}}>
         <Icon icon={arrowUp}/> upload
       </a>
-      <a href="#" class="upgradebtn" style={{margin: '15px 20px'}}>
+      <a href="#" class="upgradebtn" style={{margin: '15px 20px', whiteSpace: 'nowrap'}}>
         <Icon icon={star}/> upgrade
       </a>
 

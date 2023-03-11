@@ -33,7 +33,7 @@ function Content(props) {
         </div>
         <div id="flexContainer">
           <VideoBlock videos={top6} id='top6'/>
-          <Advertisement {...ad[0]} id='myad1'/>
+          <Advertisement img={ad[0]} id='myad1'/>
         </div>
       </div>
 
@@ -45,8 +45,8 @@ function Content(props) {
       </div>
 
       <div id="addBlock">
-        <Advertisement {...ad[1]} id='myad2'/>
-        <Advertisement {...ad[2]} id='myad3'/>
+        <Advertisement img={ad[1]} id='myad2'/>
+        <Advertisement img={ad[2]} id='myad3'/>
       </div>
 
       <div id="container">

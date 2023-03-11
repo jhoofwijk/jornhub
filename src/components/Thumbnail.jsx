@@ -9,11 +9,11 @@ export function Thumbnail(props) {
     <div class="myThumbnail">
       <a href={`watch.html?id=${props.id}`} title="Redhead poledancing" class="box">
         <div class="imgBox">
-          <picture>
-            <source type="image/webp" srcset={`/img/thumb/${props.webp}`}/>
-            <source srcset={`/img/thumb/${props.img}`}/>
-            <img src={`/img/thumb/${props.img}`}/>
-          </picture>
+          <img src={props.img}/>
+          {/* <picture> */}
+            {/* <source type="image/webp" srcset={`/img/thumb/${props.webp}`}/> */}
+            {/* <source srcset={`/img/thumb/${props.img}`}/> */}
+          {/* </picture> */}
 
           <div class="time">{props.time}</div>
           <div class="rating">

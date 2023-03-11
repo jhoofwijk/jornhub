@@ -29,8 +29,8 @@ function Content(props) {
         <div id="flexContainer">
           <div id="addBlock">
             {
-                add.map(ad => 
-                    <Advertisement {...ad} />
+                add.map((ad, i) => 
+                    <Advertisement img={ad} key={i}/>
                 )
             }
           </div>
