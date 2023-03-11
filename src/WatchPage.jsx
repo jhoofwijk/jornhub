@@ -47,7 +47,7 @@ function Content(props) {
             <iframe id="ytplayer" src={videos[videoId].urlsrc} frameborder="0" allowfullscree="true"></iframe>
           </div>
           <div id="myad1">
-            <Advertisement {...ad[0]} />
+            <Advertisement img={ad[0]} />
           </div>
         </div>
 
