@@ -4,7 +4,7 @@
 
 
 [[headers]]
-    for = "/img/*"
+    for = "*.webp"
     [headers.values]
         Cache-Control = "public, max-age=999999"
 
