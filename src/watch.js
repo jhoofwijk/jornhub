@@ -1,5 +1,5 @@
 
-import { h, render } from 'preact';
+import { render } from 'preact';
 import Watch from './WatchPage';
 
 const mountNode = document.getElementById('app');
