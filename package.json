@@ -28,11 +28,17 @@
     "react-icons-kit": "^2.0.0"
   },
   "devDependencies": {
+    "@heroicons/react": "^2.0.16",
     "@parcel/reporter-bundle-analyzer": "^2.8.3",
+    "@preact/compat": "^17.1.2",
     "parcel": "^2.8.3",
-    "parcel-bundler": "^1.8.1"
+    "parcel-bundler": "^1.8.1",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
   },
   "alias": {
-    "preact/jsx-dev-runtime": "preact/jsx-runtime"
+    "preact/jsx-dev-runtime": "preact/jsx-runtime",
+    "react": "preact/compat",
+    "react-dom": "preact/compat"
   }
 }

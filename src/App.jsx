@@ -27,30 +27,32 @@ function Content(props) {
 
   return (
     <div>
-      <div id="container">
-        <div class="blockHeader">
+      <div class="m-2">
+        <div class="text-4xl">
           Hot Jorn Videos In Netherlands
         </div>
-        <div id="flexContainer">
-          <VideoBlock videos={top6} id='top6'/>
-          <Advertisement img={ad[0]} id='myad1'/>
+        <div class="flex flex-row flex-wrap p-1">
+          <div class='w-[66vw] max-w-[750] flex-grow'>
+            <VideoBlock videos={top6} />
+          </div>
+          <Advertisement img={ad[0]} />
         </div>
       </div>
 
-      <div id="container">
-        <div class="blockHeader">
+      <div id="m-2">
+        <div class="text-4xl">
           Most Viewed In Netherlands
         </div>
         <VideoBlock videos={mostViewed} id='mostViewed'/>
       </div>
 
-      <div id="addBlock">
-        <Advertisement img={ad[1]} id='myad2'/>
-        <Advertisement img={ad[2]} id='myad3'/>
+      <div class="flex flex-row flex-wrap p-1 bg-gray-900">
+        <Advertisement img={ad[1]} />
+        <Advertisement img={ad[2]} />
       </div>
 
-      <div id="container">
-        <div class="blockHeader">
+      <div id="m-2">
+        <div class="text-4xl">
           Recommended for you
         </div>
         <VideoBlock videos={recommended} id='recommended'/>
