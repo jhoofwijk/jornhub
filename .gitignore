@@ -1,6 +1,6 @@
 node_modules
 .cache
+.parcel-cache
 
 dist/
-!dist/img
-
+parcel-bundle-reports
