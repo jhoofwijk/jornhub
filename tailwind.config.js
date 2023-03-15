@@ -7,11 +7,14 @@ module.exports = {
         flicker: {
           "0%, 100%": { borderColor: "#f00" },
           "50%": { borderColor: "#0f0" },
-        }
+        },
       },
       animation: {
-        flicker: "flicker 0.7s infinite"
-      }
+        flicker: "flicker 0.7s infinite",
+      },
+      colors: {
+        secondary: "#ff9000",
+      },
     },
   },
   plugins: [],

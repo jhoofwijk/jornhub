@@ -35,7 +35,7 @@ export function Thumbnail(props) {
           <span class="font-semibold text-sm align-middle">{props.score}%</span>
         </div>
         <div class="textbox">
-          <span class="text">{props.title}</span>
+          <span class="font-semibold text-secondary">{props.title}</span>
         </div>
       </a>
     </div>
