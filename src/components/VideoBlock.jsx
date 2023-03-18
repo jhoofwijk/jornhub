@@ -1,9 +1,9 @@
 import { h, Component } from 'preact';
 import { Thumbnail } from './Thumbnail';
 
-export function VideoBlock({videos, id}) {
+export function VideoBlock({videos}) {
     return (
-      <div id={id}>
+      <div>
         {videos.map(video => <Thumbnail {...video} />)}
       </div>
     )

@@ -1,3 +1,5 @@
+
+import { render } from 'preact';
 import { h, Component } from 'preact';
 
 import { Header } from './components/Header';
@@ -6,17 +8,17 @@ import { videos } from './components/videos';
 import { ads } from './components/ads';
 import { Advertisement } from './components/Advertisement';
 import { VideoBlock } from './components/VideoBlock';
+import { Block } from './components/Block';
 
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header/>
-        <Content/>
-      </div>
+
+function App() {
+  return (
+    <div>
+      <Header/>
+      <Content/>
+    </div>
     )
-  }
 }
 
 function Content(props) {
@@ -27,36 +29,31 @@ function Content(props) {
 
   return (
     <div>
-      <div class="m-2">
-        <div class="text-4xl">
-          Hot Jorn Videos In Netherlands
-        </div>
+      <Block title="Hot Jorn Videos In Netherlands">
+
         <div class="flex flex-row flex-wrap p-1">
           <div class='w-[66vw] max-w-[750] flex-grow'>
             <VideoBlock videos={top6} />
           </div>
           <Advertisement img={ad[0]} />
         </div>
-      </div>
+      </Block>
 
-      <div id="m-2">
-        <div class="text-4xl">
-          Most Viewed In Netherlands
-        </div>
-        <VideoBlock videos={mostViewed} id='mostViewed'/>
-      </div>
+      <Block title="Most Viewed In Netherlands">
+        <VideoBlock videos={mostViewed} />
+      </Block>
 
-      <div class="flex flex-row flex-wrap p-1 bg-gray-900">
+      <div class="flex flex-row flex-wrap p-1">
         <Advertisement img={ad[1]} />
         <Advertisement img={ad[2]} />
       </div>
 
-      <div id="m-2">
-        <div class="text-4xl">
-          Recommended for you
-        </div>
-        <VideoBlock videos={recommended} id='recommended'/>
-      </div>
+      <Block title="Recommended for you">
+        <VideoBlock videos={recommended} />
+      </Block>
     </div>
   );
 }
+
+const mountNode = document.getElementById('app');
+render(<App />, mountNode, mountNode.lastChild);

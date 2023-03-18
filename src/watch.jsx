@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { render } from 'preact';
 
 import { Header } from './components/Header';
 import { sample } from './components/helpers';
@@ -6,19 +6,17 @@ import { videos } from './components/videos';
 import { ads } from './components/ads';
 import { Advertisement } from './components/Advertisement';
 import { VideoBlock } from './components/VideoBlock';
+import { Block } from './components/Block';
 
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header/>
-        <Content/>
-      </div>
+function WatchPage() {
+  return (
+    <div>
+      <Header/>
+      <Content/>
+    </div>
     )
-  }
 }
-
 function urlParam(name){
   var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
   if (results==null){
@@ -37,27 +35,27 @@ function Content(props) {
   var videoId = urlParam("id");
 
   return (
-    <div>
-      <div id='container'>
-        <div class="blockHeader">
-          Watch video
-        </div>
-        <div id="flexContainer">
-          <div id="videoWatch">
-            <iframe id="ytplayer" src={videos[videoId].urlsrc} frameborder="0" allowfullscree="true"></iframe>
+    <div class="max-w-7xl m-auto">
+      <Block title="Watch video">
+        <div class="flex flex-row p-1">
+          <div class="w-2/3 shrink-0">
+            <iframe class="w-[50vw] h-[30vw] max-w-[853] max-h-[480] m-auto" src={videos[videoId].urlsrc} frameborder="0" allowfullscree="true"></iframe>
           </div>
-          <div id="myad1">
+          <div class="shrink ml-4">
             <Advertisement img={ad[0]} />
           </div>
         </div>
+      </Block>
 
-      </div>
-      <div id="container">
-        <div class="blockHeader">
-          Recommended for you
-        </div>
-        <VideoBlock videos={recommended} id='recommended'/>
-      </div>
+      <Block title="Recommended for you">
+        <VideoBlock videos={recommended} />
+      </Block>
     </div>
   );
 }
+
+
+
+const mountNode = document.getElementById('app');
+render(<WatchPage />, mountNode, mountNode.lastChild);
+

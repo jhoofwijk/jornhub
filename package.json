@@ -24,8 +24,7 @@
   "homepage": "https://github.com/jhoofwijk/jornhub",
   "dependencies": {
     "inline-assets": "^1.4.8",
-    "preact": "^10.13.1",
-    "react-icons-kit": "^2.0.0"
+    "preact": "^10.13.1"
   },
   "devDependencies": {
     "@heroicons/react": "^2.0.16",
