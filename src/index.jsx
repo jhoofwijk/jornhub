@@ -43,10 +43,12 @@ function Content(props) {
         <VideoBlock videos={mostViewed} />
       </Block>
 
-      <div class="flex flex-row flex-wrap p-1">
-        <Advertisement img={ad[1]} />
-        <Advertisement img={ad[2]} />
-      </div>
+      <Block>
+        <div class="flex flex-row flex-wrap p-1">
+          <Advertisement img={ad[1]} />
+          <Advertisement img={ad[2]} />
+        </div>
+      </Block>
 
       <Block title="Recommended for you">
         <VideoBlock videos={recommended} />

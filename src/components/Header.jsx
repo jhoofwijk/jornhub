@@ -1,4 +1,4 @@
-import { ArrowUpTrayIcon, StarIcon, ChevronDownIcon, VideoCameraIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
+import { ArrowUpTrayIcon, StarIcon, ChevronDownIcon, VideoCameraIcon, MagnifyingGlassIcon, Bars3Icon, UserCircleIcon } from '@heroicons/react/20/solid'
 
 import logo from "../img/logo.png"
 
@@ -18,33 +18,65 @@ function Network(props) {
   );
 }
 
-function SearchBar(props) {
+function SearchBar() {
+  return (
+    <>
+      <SearchBarDesktop/>
+      <SearchBarMobile/>
+    </>
+  )
+}
+
+function SearchBarMobile() {
 	return (
-    <div class="h-16 overflow-hidden border-b border-primary-700 bg-primary-900 flex flex-row items-center whitespace-nowrap">
-      <a href="/" class="h-[38px] w-[149px] shrink-0">
-        <img src={logo}/>
-      </a>
-      <form action="/" method="get" class="hidden-xs mx-15 grow flex items-center">
-        <input class="rounded-l inline-block grow max-w-2xl ml-auto" type="text" placeholder="Search..." name="q"/>
-        <button class="h-6 inline-block bg-white">
-          <VideoCameraIcon class="h-5 w-5 text-primary-700 ml-1 inline"/>
-          <ChevronDownIcon class="h-5 w-5 text-primary-700 mr-[2px] inline"/>
-        </button>
-        <button class="w-16 h-6 bg-secondary rounded-r">
-          <MagnifyingGlassIcon class="h-5 w-5 text-primary-700 m-auto"/>
-        </button>
-      </form>
-      <a href="#" class="whitespace-nowrap ml-4 bg-primary-700 hover:bg-primary-600 px-4 py-1 text-primary-100 rounded font-semibold">
-        <ArrowUpTrayIcon class="h-5 w-5 inline"/> upload
-      </a>
-      <a href="#" class="whitespace-nowrap mx-2 bg-secondary px-4 py-1 text-primary-700 rounded font-semibold">
-        <StarIcon class="h-5 w-5 inline"/> upgrade
+    <div class="h-12 border-b border-primary-700 md:hidden whitespace-nowrap overflow-hidden flex flex-row items-center">
+      <a href="/" class="ml-3 mr-9">
+        <Bars3Icon class="h-6 w-6 text-secondary"/>
       </a>
 
-      <div class="">
-        <a href="#" class="m-2 hover:text-primary-300">EN <ChevronDownIcon class="h-5 w-5 inline"/></a>
-        <a href="#" class="m-2 hover:text-primary-300">Log in</a>
-        <a href="#" class="m-2 hover:text-primary-300">Sign Up</a>
+      <a href="/" class="h-[35px] w-[149px] shrink-0 mx-auto">
+        <img src={logo} height="35px" width="149px"/>
+      </a>
+
+      <a href="/" class="mr-3">
+        <MagnifyingGlassIcon class="h-6 w-6"/>
+      </a>
+      <a href="/" class="mr-3">
+        <UserCircleIcon class="h-6 w-6"/>
+      </a>
+    </div>
+  );
+}
+
+function SearchBarDesktop() {
+	return (
+    <div class="h-16 border-b border-primary-700 bg-primary-900 hidden md:block">
+      <div class="h-16 overflow-hidden flex flex-row items-center whitespace-nowrap max-w-7xl mx-auto">
+        <a href="/" class="h-[38px] w-[149px] shrink-0 mr-6">
+          <img src={logo}/>
+        </a>
+        <form action="/" method="get" class="hidden-xs mx-15 grow items-center flex">
+          <input class="rounded-l inline-block grow max-w-2xl ml-auto" type="text" placeholder="Search..." name="q"/>
+          <button class="h-6 inline-block bg-white">
+            <VideoCameraIcon class="h-5 w-5 text-primary-700 ml-1 inline"/>
+            <ChevronDownIcon class="h-5 w-5 text-primary-700 mr-[2px] inline"/>
+          </button>
+          <button class="w-16 h-6 bg-secondary rounded-r">
+            <MagnifyingGlassIcon class="h-5 w-5 text-primary-700 m-auto"/>
+          </button>
+        </form>
+        <a href="#" class="whitespace-nowrap ml-4 bg-primary-700 hover:bg-primary-600 px-4 py-1 text-primary-100 rounded font-semibold">
+          <ArrowUpTrayIcon class="h-5 w-5 inline"/> upload
+        </a>
+        <a href="#" class="whitespace-nowrap mx-2 bg-secondary px-4 py-1 text-primary-700 rounded font-semibold">
+          <StarIcon class="h-5 w-5 inline"/> upgrade
+        </a>
+
+        <div class="">
+          <a href="#" class="m-2 hover:text-primary-300">EN <ChevronDownIcon class="h-5 w-5 inline"/></a>
+          <a href="#" class="m-2 hover:text-primary-300">Log in</a>
+          <a href="#" class="m-2 hover:text-primary-300">Sign Up</a>
+        </div>
       </div>
     </div>
   );
@@ -61,7 +93,7 @@ function MenuItem({active, label, icon}) {
 
 function MenuBar(props) {
   return (
-		<div class="h-10 border-b border-primary-700 overflow-hidden whitespace-nowrap bg-primary-900 flex items-center justify-center">
+		<div class="h-10 border-b border-primary-700 overflow-hidden whitespace-nowrap bg-primary-900 hidden md:flex items-center justify-center">
       <MenuItem label="HOME" active/>
       <MenuItem label="VIDEOS" icon/>
       <MenuItem label="CATEGORIES" icon/>
