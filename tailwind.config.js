@@ -4,6 +4,7 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
+    
     extend: {
       keyframes: {
         flicker: {
@@ -17,6 +18,9 @@ module.exports = {
       colors: {
         primary: colors.zinc,
         secondary: "#ff9000",
+      },
+      screens: {
+        xs: '480px',
       },
     },
   },
