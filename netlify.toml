@@ -6,7 +6,13 @@
 [[headers]]
     for = "*.webp"
     [headers.values]
-        Cache-Control = "public, max-age=999999"
+        Cache-Control = "public, max-age=31536000"
+
+
+[[headers]]
+    for = "*.png"
+    [headers.values]
+        Cache-Control = "public, max-age=31536000"
 
 
 [[headers]]
