@@ -31,7 +31,7 @@ function Content(props) {
     <div>
       <Block title="Hot Jorn Videos In Netherlands">
         <div class="flex flex-row flex-wrap">
-          <div class='w-full sm:w-[66vw] max-w-[750] flex-grow'>
+          <div class='w-full sm:w-2/3 flex-grow'>
             <VideoBlock videos={top6} />
           </div>
           <Advertisement img={ad[0]} />
@@ -43,7 +43,7 @@ function Content(props) {
       </Block>
 
       <Block>
-        <div class="flex flex-row flex-wrap p-1">
+        <div class="flex flex-row flex-wrap gap-2">
           <Advertisement img={ad[1]} />
           <Advertisement img={ad[2]} />
         </div>
