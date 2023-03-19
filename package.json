@@ -2,10 +2,11 @@
   "name": "jornhub.nl",
   "version": "1.0.0",
   "description": "Pages for jornhub.nl & jornhub.love",
-  "main": "index.html",
+  "default": "src/index.html",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url .",
+    "analyse": "parcel build src/*.html --public-url . --reporter @parcel/reporter-bundle-analyzer",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,20 +21,23 @@
   "bugs": {
     "url": "https://github.com/jhoofwijk/jornhub/issues"
   },
-  "homepage": "https://github.com/jhoofwijk/jornhub#readme",
+  "homepage": "https://github.com/jhoofwijk/jornhub",
   "dependencies": {
     "inline-assets": "^1.4.8",
-    "preact": "^8.5.3",
-    "preact-compat": "^3.19.0",
-    "react-icons-kit": "^1.3.1"
+    "preact": "^10.13.1"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-preact": "^1.1.0",
-    "parcel-bundler": "^1.12.5"
+    "@heroicons/react": "^2.0.16",
+    "@parcel/reporter-bundle-analyzer": "^2.8.3",
+    "@preact/compat": "^17.1.2",
+    "parcel": "^2.8.3",
+    "parcel-bundler": "^1.8.1",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
   },
   "alias": {
-    "react": "preact-compat",
-    "react-dom": "preact-compat"
+    "preact/jsx-dev-runtime": "preact/jsx-runtime",
+    "react": "preact/compat",
+    "react-dom": "preact/compat"
   }
 }
