@@ -4,7 +4,6 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
-    
     extend: {
       keyframes: {
         flicker: {
@@ -15,13 +14,15 @@ module.exports = {
       animation: {
         flicker: "flicker 0.7s infinite",
       },
-      colors: {
-        primary: colors.zinc,
-        secondary: "#ff9000",
-      },
       screens: {
         xs: '480px',
       },
+    },
+    colors: {
+      neutral: colors.zinc, // colors.neutral?
+      white: colors.white,
+      black: colors.black,
+      primary: "#ff9000",
     },
   },
   plugins: [],

@@ -43,7 +43,7 @@ function Content(props) {
       </Block>
 
       <Block>
-        <div class="flex flex-row flex-wrap gap-2">
+        <div class="flex flex-row flex-wrap gap-">
           <Advertisement img={ad[1]} />
           <Advertisement img={ad[2]} />
         </div>
