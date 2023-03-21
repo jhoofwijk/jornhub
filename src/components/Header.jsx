@@ -4,7 +4,7 @@ import logo from "../img/logo.png"
 
 function Network(props) {
   return (
-    <div class="h-6 text-center text-sm overflow-hidden border-b border-neutral-700">
+    <div class="h-6 text-center text-sm overflow-hidden border-b border-neutral-700 bg-neutral-900/10 backdrop-blur-md">
       <b>Jornhub NETWORK</b>
       <a href="/" class="text-neutral-300 ml-2 text-xs inline-block px-2 py-1 hover:text-white">JornHub</a>
       <a href="/" class="text-neutral-300 ml-2 text-xs inline-block px-2 py-1 hover:text-white">YouJorn</a>
@@ -29,7 +29,7 @@ function SearchBar() {
 
 function SearchBarMobile() {
 	return (
-    <div class="h-12 border-b border-neutral-700 md:hidden whitespace-nowrap overflow-hidden flex flex-row items-center">
+    <div class="h-12 border-b border-neutral-700 bg-neutral-900/10 backdrop-blur-md md:hidden whitespace-nowrap overflow-hidden flex flex-row items-center">
       <a href="/" class="ml-3 mr-9">
         <Bars3Icon class="h-6 w-6 text-primary"/>
       </a>
@@ -50,7 +50,7 @@ function SearchBarMobile() {
 
 function SearchBarDesktop() {
 	return (
-    <div class="h-16 border-b border-neutral-700 bg-neutral-900 hidden md:block">
+    <div class="h-16 border-b border-neutral-700 bg-neutral-900/10 backdrop-blur-md hidden md:block">
       <div class="h-16 overflow-hidden flex flex-row items-center whitespace-nowrap max-w-7xl mx-auto">
         <a href="/" class="h-[38px] w-[149px] shrink-0 mr-6">
           <img src={logo}/>
@@ -93,7 +93,7 @@ function MenuItem({active, label, icon}) {
 
 function MenuBar(props) {
   return (
-		<div class="h-10 border-b border-neutral-700 overflow-hidden whitespace-nowrap bg-neutral-900 hidden md:flex items-center justify-center">
+		<div class="h-10 border-b border-neutral-700 overflow-hidden whitespace-nowrap bg-neutral-900/10 backdrop-blur-md hidden md:flex items-center justify-center">
       <MenuItem label="HOME" active/>
       <MenuItem label="VIDEOS" icon/>
       <MenuItem label="CATEGORIES" icon/>
