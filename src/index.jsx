@@ -9,12 +9,14 @@ import { ads } from './components/ads';
 import { Advertisement } from './components/Advertisement';
 import { VideoBlock } from './components/VideoBlock';
 import { Block } from './components/Block';
+import { BgHearts } from './components/BackgroundHearts';
 
 
 
 function App() {
   return (
     <div>
+      <BgHearts/>
       <Header/>
       <Content/>
     </div>

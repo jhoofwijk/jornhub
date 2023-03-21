@@ -8,11 +8,13 @@ import { Advertisement } from './components/Advertisement';
 import { VideoBlock } from './components/VideoBlock';
 
 import { Block } from './components/Block';
+import { BgHearts } from './components/BackgroundHearts';
 
 
 function AddsPage() {
   return (
     <div>
+      <BgHearts/>
       <Header/>
       <Content/>
     </div>
