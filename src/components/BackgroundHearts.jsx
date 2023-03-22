@@ -1,12 +1,46 @@
 import { HeartIcon } from "@heroicons/react/20/solid";
-import { useMemo } from "@preact/compat"
+import { useMemo } from "react"
 
-function generateRandomNumbers(count, width, height) {
-  return Array.from({length: count}, (v, k) => ({ top: Math.random() * height, left: Math.random() * width }))
+function haltonSequence(count, base) {
+  let result = [];
+
+  let n = 0;
+  let d = 1;
+
+  for (let i=0; i<count; i++) {
+    let x = d - n;
+    if (x == 1) {
+      n = 1;
+      d *= base;
+    } else {
+      let y = Math.floor(d / base);
+      while (x <= y) {
+        y = Math.floor(y / base);
+      }
+      n = (base + 1) * y - x;
+    }
+    result.push(n / d)
+  }
+  return result;
 }
 
+function generateRandomNumbers(count, width, height) {
+  let x = haltonSequence(count, 2)
+  let y = haltonSequence(count, 3)
+
+  let result = [];
+  for (let i=0; i<count; i++) {
+    result.push({left: x[i] * width, top: y[i]*height});
+  }
+  return result;
+}
+
+// function generateRandomNumbers(count, width, height) {
+//   return Array.from({length: count}, (v, k) => ({ top: Math.random() * height, left: Math.random() * width }))
+// }
+
 export function BgHearts() {
-  const density = 70e-6; // hearts/pixel^2
+  const density = 70e-6; // hearts/pixel^2     (70 on large screen, 150 on mobile)
   const height = window.innerHeight;
   const width = window.innerWidth;
   const count = Math.floor(density * width * height);

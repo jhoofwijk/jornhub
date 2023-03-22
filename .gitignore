@@ -5,3 +5,4 @@ node_modules
 dist/
 parcel-bundle-reports
 todo.txt
+.env.local
