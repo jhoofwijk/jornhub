@@ -10,9 +10,14 @@ module.exports = {
           "0%, 100%": { borderColor: "#f00" },
           "50%": { borderColor: "#0f0" },
         },
+        heartbeat: {
+          "0%, 70%": { transform: "scale(1)" },
+          "35%": { transform: "scale(1.2)" },
+        },
       },
       animation: {
         flicker: "flicker 0.7s infinite",
+        heartbeat: "heartbeat 1s infinite",
       },
       screens: {
         xs: '480px',

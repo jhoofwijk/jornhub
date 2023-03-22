@@ -1,34 +1,22 @@
-
 import { render } from 'preact';
-import { h, Component } from 'preact';
 
-import { Header } from './components/Header';
 import { sample } from './components/helpers';
 import { videos } from './components/videos';
 import { ads } from './components/ads';
 import { Advertisement } from './components/Advertisement';
 import { VideoBlock } from './components/VideoBlock';
 import { Block } from './components/Block';
+import { Page } from './components/Page';
 
 
-
-function App() {
-  return (
-    <div>
-      <Header/>
-      <Content/>
-    </div>
-    )
-}
-
-function Content(props) {
+function App(props) {
   const top6 = sample(videos, 6);
   const mostViewed = sample(videos, 5);
   const recommended = sample(videos, 5);
   const ad = sample(ads, 3);
 
   return (
-    <div>
+    <Page>
       <Block title="Hot Jorn Videos In Netherlands">
         <div class="flex flex-row flex-wrap">
           <div class='w-full sm:w-2/3 flex-grow max-w-3xl'>
@@ -52,7 +40,7 @@ function Content(props) {
       <Block title="Recommended for you">
         <VideoBlock videos={recommended} />
       </Block>
-    </div>
+    </Page>
   );
 }
 
