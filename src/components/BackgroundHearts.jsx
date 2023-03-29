@@ -40,7 +40,7 @@ function generateRandomNumbers(count, width, height) {
 // }
 
 export function BgHearts() {
-  const density = 70e-6; // hearts/pixel^2     (70 on large screen, 150 on mobile)
+  const density = 40e-6; // hearts/pixel^2     (70 on large screen, 150 on mobile)
   const height = window.innerHeight;
   const width = window.innerWidth;
   const count = Math.floor(density * width * height);
