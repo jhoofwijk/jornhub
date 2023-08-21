@@ -25,7 +25,20 @@ const videos = [
   // { title: "Blonde Hairy Jorn",                      time: "8:41", url: "dEtyaC6ltQg", img: "star.png" }, 
   // { title: "Sexy teen with one ball",                time: "3:47", url: "qPd1YWTSwE0", img: "kud.png" }
 
-  // Ideas: Woman eating juicy peach. - Plumber takes care of wet basement - ... getting wet on the beach - ... is grabbing some pussy - ... in the shower - ... getting whipped - dungeon - eploring her cave - 
+  // Ideas: 
+  // - ... eating juicy peach. 
+  // - Plumber takes care of wet basement (meh)
+  // - ... getting wet on the beach 
+  // - ... is grabbing some pussy (hairy / bald / ...)
+  // - ... in the shower 
+  // - ... getting whipped 
+  // - dungeon 
+  // - eploring her cave 
+
+  // - ... licking pussy (cat)
+  // - public bondage (houdini / (or) / escape artist)
+  // - tits (bird)   (ideally: freeing tits in the park)
+  // - 
 ];
 
 videos.forEach((el,i) => {
