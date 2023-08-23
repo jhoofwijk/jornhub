@@ -24,13 +24,14 @@ function haltonSequence(count, base) {
   return result;
 }
 
-function generateRandomNumbers(count, width, height) {
+function generateRandomNumbers(count, width, height, maxDelay) {
   let x = haltonSequence(count, 2)
   let y = haltonSequence(count, 3)
+  let z = haltonSequence(count, 5)
 
   let result = [];
   for (let i=0; i<count; i++) {
-    result.push({left: x[i] * width, top: y[i]*height});
+    result.push({left: x[i] * width, top: y[i]*height, animationDelay: `${maxDelay*z[i]}s`});
   }
   return result;
 }
@@ -40,24 +41,23 @@ function generateRandomNumbers(count, width, height) {
 // }
 
 export function BgHearts() {
-  const density = 40e-6; // hearts/pixel^2     (70 on large screen, 150 on mobile)
+  const density = 70e-6; // hearts/pixel^2     (70 on large screen, 150 on mobile)
   const height = window.innerHeight;
   const width = window.innerWidth;
   const count = Math.floor(density * width * height);
 
-  const locations = useMemo(() => generateRandomNumbers(count, width, height), [count, width, height]);
+  const locations = useMemo(() => generateRandomNumbers(count, width, height, -20), [count, width, height]);
 
   return (
     <>
-      <div class="fixed w-screen h-screen -z-20 blur-[8px]">
-        { locations.map((pos) => <HeartIcon class="fixed w-10 h-10 text-[#ff0088] animate-heartbeat" style={{top: pos.top - 2, left: pos.left - 2}}/>) }
-      </div>
-
-      <div class="fixed w-screen h-screen -z-10 blur-[1px]">
-        { locations.map((pos) => <HeartIcon class="fixed w-9 h-9 text-[#ff92db] animate-heartbeat" style={pos}/>) }
+      <div class="fixed w-screen h-screen -z-10">
+        { locations.map((pos) => (
+          <div class="fixed animate-fadeinout" style={pos}>
+            <HeartIcon class="absolute top-[-2px] left-[-2px] -z-20 w-10 h-10 text-[#ff0088] animate-heartbeat blur-[8px]" style={{animationDelay: pos.animationDelay}}/>
+            <HeartIcon class="absolute top-[0] left-[0] -z-10 w-9 h-9 text-[#ff92db] animate-heartbeat blur-[1px]" style={{animationDelay: pos.animationDelay}}/>
+          </div>
+        )) }
       </div>
     </>
   )
 }
-  
-  

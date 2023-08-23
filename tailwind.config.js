@@ -14,10 +14,15 @@ module.exports = {
           "0%, 70%": { transform: "scale(1)" },
           "35%": { transform: "scale(1.2)" },
         },
+        fadeinout: {
+          "0%, 50%, 100%": { opacity: 0 },
+          "15%, 35%": { opacity: 1 },
+        }
       },
       animation: {
         flicker: "flicker 0.7s infinite",
         heartbeat: "heartbeat 1s infinite",
+        fadeinout: "fadeinout 20s infinite ease-in-out",
       },
       screens: {
         xs: '480px',
