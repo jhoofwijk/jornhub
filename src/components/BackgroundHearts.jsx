@@ -35,10 +35,6 @@ function generateRandomNumbers(count, width, height) {
   return result;
 }
 
-// function generateRandomNumbers(count, width, height) {
-//   return Array.from({length: count}, (v, k) => ({ top: Math.random() * height, left: Math.random() * width }))
-// }
-
 export function BgHearts() {
   const density = 40e-6; // hearts/pixel^2     (70 on large screen, 150 on mobile)
   const height = window.innerHeight;
